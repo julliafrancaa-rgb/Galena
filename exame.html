@@ -1,1 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <title>Exame | GALENA</title>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            <div class="simbolo-logo">
+
+                <img
+                    src="https://i.postimg.cc/yY9Yd94c/OIP.jpg"
+                    alt="Logo Galena">
+
+            </div>
+
+            <div class="texto-logo">
+
+                GALENA
+
+                <span>MEDICINA INTEGRADA</span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="pagina-exame">
+
+            <p class="identificacao">
+                GALENA | MEDICINA INTEGRADA
+            </p>
+
+            <h1 id="titulo-exame">
+                Ultrassonografia
+            </h1>
+
+            <p
+                class="descricao-exame"
+                id="descricao-exame">
+
+                Informações sobre o exame.
+
+            </p>
+
+
+            <div class="informacao-exame">
+
+                <h2>
+                    Sobre o exame
+                </h2>
+
+                <p id="sobre-exame">
+                    Informações sobre o exame.
+                </p>
+
+            </div>
+
+
+            <div class="informacao-exame">
+
+                <h2>
+                    Preparo
+                </h2>
+
+                <p id="preparo-exame">
+                    As orientações de preparo podem variar de acordo
+                    com o exame solicitado.
+                </p>
+
+                <p>
+                    Confirme o preparo específico no momento do agendamento.
+                </p>
+
+            </div>
+
+
+            <a
+                id="botao-agendamento"
+                href="https://wa.me/5541996895420?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20exame%20na%20Galena."
+                class="botao-exame"
+                target="_blank">
+
+                Agendar este exame
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 Galena Medicina Integrada
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const parametros = new URLSearchParams(window.location.search);
+
+        const exame = parametros.get("exame");
+
+
+        const exames = {
+
+            abdominal: {
+
+                titulo: "Ultrassonografia Abdominal",
+
+                descricao:
+                    "Exame destinado à avaliação dos órgãos e estruturas da região abdominal por meio da ultrassonografia.",
+
+                sobre:
+                    "A ultrassonografia abdominal permite a avaliação de diferentes órgãos e estruturas da região abdominal.",
+
+                preparo:
+                    "As orientações de preparo devem ser confirmadas no momento do agendamento."
+
+            },
+
+
+            tireoide: {
+
+                titulo: "Ultrassonografia de Tireoide",
+
+                descricao:
+                    "Exame destinado à avaliação da tireoide e das estruturas da região cervical.",
+
+                sobre:
+                    "A ultrassonografia de tireoide permite avaliar a glândula tireoide e suas características ultrassonográficas.",
+
+                preparo:
+                    "O preparo deve ser confirmado no momento do agendamento."
+
+            },
+
+
+            pelvica: {
+
+                titulo: "Ultrassonografia Pélvica",
+
+                descricao:
+                    "Exame destinado à avaliação dos órgãos e estruturas da região pélvica.",
+
+                sobre:
+                    "A ultrassonografia pélvica permite a avaliação das estruturas e órgãos da região pélvica.",
+
+                preparo:
+                    "As orientações de preparo devem ser confirmadas no momento do agendamento."
+
+            },
+
+
+            mamas: {
+
+                titulo: "Ultrassonografia de Mamas",
+
+                descricao:
+                    "Exame destinado à avaliação do tecido mamário e das estruturas das mamas.",
+
+                sobre:
+                    "A ultrassonografia das mamas permite a avaliação do tecido mamário e das estruturas mamárias.",
+
+                preparo:
+                    "O preparo deve ser confirmado no momento do agendamento."
+
+            },
+
+
+            obstetrica: {
+
+                titulo: "Ultrassonografia Obstétrica",
+
+                descricao:
+                    "Exame utilizado durante a gestação para avaliação do desenvolvimento fetal.",
+
+                sobre:
+                    "A ultrassonografia obstétrica permite acompanhar a gestação e avaliar estruturas maternas e fetais conforme a indicação médica.",
+
+                preparo:
+                    "As orientações de preparo devem ser confirmadas no momento do agendamento."
+
+            },
+
+
+            rins: {
+
+                titulo: "Ultrassonografia de Rins e Vias Urinárias",
+
+                descricao:
+                    "Exame destinado à avaliação dos rins, bexiga e estruturas do sistema urinário.",
+
+                sobre:
+                    "A ultrassonografia de rins e vias urinárias permite avaliar os rins, a bexiga e outras estruturas do sistema urinário.",
+
+                preparo:
+                    "As orientações de preparo devem ser confirmadas no momento do agendamento."
+
+            }
+
+        };
+
+
+        const dados = exames[exame];
+
+
+        if (dados) {
+
+            document.title = dados.titulo + " | GALENA";
+
+            document.getElementById("titulo-exame").textContent = dados.titulo;
+
+            document.getElementById("descricao-exame").textContent = dados.descricao;
+
+            document.getElementById("sobre-exame").textContent = dados.sobre;
+
+            document.getElementById("preparo-exame").textContent = dados.preparo;
+
+
+            const mensagem =
+                "Olá! Gostaria de agendar " +
+                dados.titulo +
+                " na Galena.";
+
+
+            document.getElementById("botao-agendamento").href =
+                "https://wa.me/5541996895420?text=" +
+                encodeURIComponent(mensagem);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
