@@ -1,20 +1,23 @@
-function abrirMenu() {
 
-    const menu = document.getElementById("menu");
+document.addEventListener("DOMContentLoaded", () => {
+  // Atualiza automaticamente o ano do rodapé.
+  const ano = document.getElementById("ano");
 
-    menu.classList.toggle("menu-aberto");
+  if (ano) {
+    ano.textContent = new Date().getFullYear();
+  }
 
-}
+  // Fecha o menu do navegador ao clicar
+  // em um link interno da página.
+  const linksInternos = document.querySelectorAll('a[href^="#"]');
 
+  linksInternos.forEach((link) => {
+    link.addEventListener("click", () => {
+      const menu = document.querySelector(".navlinks");
 
-const linksMenu = document.querySelectorAll("#menu a");
-
-linksMenu.forEach(function(link) {
-
-    link.addEventListener("click", function() {
-
-        document.getElementById("menu").classList.remove("menu-aberto");
-
+      if (menu) {
+        menu.dataset.open = "0";
+      }
     });
-
+  });
 });
