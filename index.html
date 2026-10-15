@@ -1,408 +1,103 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-    <title>GALENA | Medicina Integrada</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galena Medicina Integrada: clínica especializada em ultrassonografia em Curitiba. Atendimento humanizado e agendamento pelo WhatsApp.">
+  <title>Galena | Medicina Integrada</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <header class="cabecalho">
+    <a class="marca" href="#inicio">
+      <span>GALENA</span>
+      <small>MEDICINA INTEGRADA</small>
+    </a>
 
-    <header>
+    <nav aria-label="Menu principal">
+      <a href="#sobre">A Galena</a>
+      <a href="#exames">Ultrassonografia</a>
+      <a href="#profissionais">Profissionais</a>
+      <a href="#contato">Contato</a>
+    </nav>
 
-        <div class="logo">
+    <a class="botao" href="https://wa.me/5541991465346" target="_blank" rel="noopener noreferrer">Agendar exame ↗</a>
+  </header>
 
-            <div class="simbolo-logo">
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-conteudo">
+        <span class="etiqueta">ULTRASSONOGRAFIA EM CURITIBA</span>
+        <h1>Precisão para cuidar do que importa.</h1>
+        <p>Tecnologia, cuidado e acolhimento em cada etapa do seu atendimento.</p>
+        <a class="botao" href="https://wa.me/5541991465346" target="_blank" rel="noopener noreferrer">Agendar pelo WhatsApp ↗</a>
+      </div>
+    </section>
 
-                <img
-                    src="https://i.postimg.cc/yY9Yd94c/OIP.jpg"
-                    alt="Logo Galena">
+    <section class="secao" id="sobre">
+      <span class="etiqueta">CONHEÇA A GALENA</span>
+      <h2>Cuidado que começa no acolhimento.</h2>
+      <p>A Galena Medicina Integrada é uma clínica especializada em ultrassonografia em Curitiba. Nosso compromisso é oferecer atendimento humanizado, responsabilidade e precisão, priorizando o conforto e a confiança de cada paciente.</p>
+    </section>
 
-            </div>
+    <section class="secao secao-azul" id="exames">
+      <span class="etiqueta">NOSSOS SERVIÇOS</span>
+      <h2>Ultrassonografia com atenção a cada detalhe.</h2>
+      <p>Realizamos atendimentos em ultrassonografia para auxiliar na avaliação e no acompanhamento da saúde. Entre em contato com nossa equipe para consultar os exames disponíveis, orientações de preparo e horários.</p>
+      <a class="botao" href="https://wa.me/5541991465346" target="_blank" rel="noopener noreferrer">Consultar exames ↗</a>
+    </section>
 
-            <div class="texto-logo">
+    <section class="secao" id="profissionais">
+      <span class="etiqueta">NOSSA EQUIPE</span>
+      <h2>Profissionais dedicados ao seu cuidado.</h2>
+      <p>Conheça nossa equipe de atendimento em ultrassonografia.</p>
+      <div class="equipe">
+        <article class="profissional">
+          <h3>Dr. Renan</h3>
+          <p>Ultrassonografia geral</p>
+        </article>
+        <article class="profissional">
+          <h3>Dr. Bruno</h3>
+          <p>Ultrassonografia geral</p>
+        </article>
+      </div>
+    </section>
 
-                GALENA
+    <section class="secao secao-contato" id="contato">
+      <span class="etiqueta">FALE COM A GALENA</span>
+      <h2>Seu próximo exame começa por uma conversa.</h2>
+      <p>Entre em contato para informações sobre agendamento, disponibilidade e preparo.</p>
 
-                <span>MEDICINA INTEGRADA</span>
-
-            </div>
-
+      <div class="contatos">
+        <div>
+          <h3>Endereço</h3>
+          <p>Rua do Herval, 625<br>Cristo Rei, Curitiba - PR<br>80050-205</p>
         </div>
-
-
-        <p class="descricao-header">
-            Clínica especializada em exames de ultrassonografia
-        </p>
-
-
-        <button
-            class="menu-mobile"
-            onclick="abrirMenu()"
-            aria-label="Abrir menu">
-
-            ☰
-
-        </button>
-
-
-        <nav id="menu">
-
-            <a href="#inicio">Início</a>
-
-            <a href="#sobre">Sobre</a>
-
-            <a href="#exames">Exames</a>
-
-            <a href="#profissionais">Profissionais</a>
-
-            <a href="#contato">Contato</a>
-
-        </nav>
-
-    </header>
-
-
-    <main>
-
-
-        <section id="inicio" class="inicio">
-
-            <h2>
-                Bem-vindo à Galena
-            </h2>
-
-            <p>
-                Cuidado, tecnologia e precisão para a sua saúde.
-            </p>
-
-            <a
-                href="https://wa.me/5541996895420?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20exame%20na%20Galena."
-                class="botao-exames"
-                target="_blank">
-
-                Agende seu exame
-
-            </a>
-
-        </section>
-
-
-        <section id="exames">
-
-            <h2>
-                Nossos exames
-            </h2>
-
-            <p class="texto-secao">
-
-                Exames de ultrassonografia realizados com tecnologia,
-                precisão e atendimento humanizado.
-
-            </p>
-
-
-            <div class="cards-exames">
-
-
-                <a
-                    href="exame.html?exame=abdominal"
-                    class="card-exame"
-                    target="_blank">
-
-                    <h3>
-                        Ultrassonografia Abdominal
-                    </h3>
-
-                    <p>
-                        Avaliação dos órgãos e estruturas da região abdominal.
-                    </p>
-
-                </a>
-
-
-                <a
-                    href="exame.html?exame=tireoide"
-                    class="card-exame"
-                    target="_blank">
-
-                    <h3>
-                        Ultrassonografia de Tireoide
-                    </h3>
-
-                    <p>
-                        Avaliação da tireoide e das estruturas da região cervical.
-                    </p>
-
-                </a>
-
-
-                <a
-                    href="exame.html?exame=pelvica"
-                    class="card-exame"
-                    target="_blank">
-
-                    <h3>
-                        Ultrassonografia Pélvica
-                    </h3>
-
-                    <p>
-                        Avaliação dos órgãos e estruturas da região pélvica.
-                    </p>
-
-                </a>
-
-
-                <a
-                    href="exame.html?exame=mamas"
-                    class="card-exame"
-                    target="_blank">
-
-                    <h3>
-                        Ultrassonografia de Mamas
-                    </h3>
-
-                    <p>
-                        Avaliação do tecido mamário e das estruturas das mamas.
-                    </p>
-
-                </a>
-
-
-                <a
-                    href="exame.html?exame=obstetrica"
-                    class="card-exame"
-                    target="_blank">
-
-                    <h3>
-                        Ultrassonografia Obstétrica
-                    </h3>
-
-                    <p>
-                        Acompanhamento da gestação e avaliação do desenvolvimento fetal.
-                    </p>
-
-                </a>
-
-
-                <a
-                    href="exame.html?exame=rins"
-                    class="card-exame"
-                    target="_blank">
-
-                    <h3>
-                        Ultrassonografia de Rins e Vias Urinárias
-                    </h3>
-
-                    <p>
-                        Avaliação dos rins, bexiga e estruturas do sistema urinário.
-                    </p>
-
-                </a>
-
-
-            </div>
-
-        </section>
-
-
-        <section id="sobre">
-
-            <h2>
-                Sobre a Galena
-            </h2>
-
-            <p>
-                Na Galena, unimos tecnologia, precisão e cuidado
-                para oferecer uma experiência acolhedora em cada exame.
-            </p>
-
-            <p>
-                Nossa clínica é especializada em ultrassonografia,
-                com atendimento humanizado e atenção às necessidades
-                de cada paciente.
-            </p>
-
-        </section>
-
-
-        <section id="profissionais">
-
-            <h2>
-                Nossos profissionais
-            </h2>
-
-            <p class="texto-profissionais">
-                Conheça os profissionais que fazem parte da equipe Galena.
-            </p>
-
-
-            <div class="cards-profissionais">
-
-
-                <div class="card-profissional">
-
-                    <div class="foto-profissional">
-                        Foto
-                    </div>
-
-                    <h3>
-                        Dr. Bruno
-                    </h3>
-
-                    <p>
-                        Médico ultrassonografista
-                    </p>
-
-                    <span>
-                        Atuação em exames de ultrassonografia geral.
-                    </span>
-
-                </div>
-
-
-                <div class="card-profissional">
-
-                    <div class="foto-profissional">
-                        Foto
-                    </div>
-
-                    <h3>
-                        Dr. Renan
-                    </h3>
-
-                    <p>
-                        Médico ultrassonografista
-                    </p>
-
-                    <span>
-                        Atuação em exames de ultrassonografia geral.
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <section id="contato">
-
-            <h2>
-                Entre em contato
-            </h2>
-
-            <p>
-                Estamos à disposição para atender você.
-            </p>
-
-
-            <div class="informacoes-contato">
-
-
-                <div class="item-contato">
-
-                    <h3>
-                        📍 Onde estamos
-                    </h3>
-
-                    <p>
-                        R. do Herval, 625<br>
-                        Cristo Rei, Curitiba - PR<br>
-                        80050-205
-                    </p>
-
-                    <a
-                        href="https://www.google.com/maps/search/?api=1&query=R.%20do%20Herval%2C%20625%20-%20Cristo%20Rei%2C%20Curitiba%20-%20PR%2C%2080050-205"
-                        class="botao-contato"
-                        target="_blank">
-
-                        Como chegar
-
-                    </a>
-
-                </div>
-
-
-                <div class="item-contato">
-
-                    <h3>
-                        🕐 Horário
-                    </h3>
-
-                    <p>
-                        Segunda a sexta<br>
-                        08h às 17h
-                    </p>
-
-                </div>
-
-
-                <div class="item-contato">
-
-                    <h3>
-                        📸 Instagram
-                    </h3>
-
-                    <p>
-                        @galena
-                    </p>
-
-                </div>
-
-
-                <div class="item-contato">
-
-                    <h3>
-                        💬 WhatsApp
-                    </h3>
-
-                    <p>
-                        (41) 99689-5420
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-            <a
-                href="https://wa.me/5541996895420?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20um%20exame%20na%20Galena."
-                class="botao-whatsapp"
-                target="_blank">
-
-                Fale conosco pelo WhatsApp
-
-            </a>
-
-        </section>
-
-
-    </main>
-
-
-    <footer>
-
-        <p>
-            © 2026 Galena Medicina Integrada
-        </p>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
+        <div>
+          <h3>Horário de atendimento</h3>
+          <p>Segunda a sexta<br>08h às 12h e 13h às 17h</p>
+        </div>
+        <div>
+          <h3>WhatsApp</h3>
+          <p>(41) 99146-5346</p>
+        </div>
+        <div>
+          <h3>Instagram</h3>
+          <a href="https://www.instagram.com/clinica.galena/" target="_blank" rel="noopener noreferrer">@clinica.galena</a>
+        </div>
+      </div>
+
+      <a class="botao" href="https://wa.me/5541991465346" target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp ↗</a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <strong>GALENA</strong>
+    <span>Medicina Integrada · Curitiba - PR</span>
+    <span>© <span id="ano"></span> Galena</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
