@@ -1,20 +1,19 @@
 
-/* GALENA MEDICINA INTEGRADA */
-/* Identidade visual */
+/* GALENA MEDICINA INTEGRADA — ESTILO PRINCIPAL */
 
 :root {
-  --azul: #101f3a;
-  --azul-escuro: #0b172c;
-  --azul-medio: #192d4d;
-  --azul-claro: #dce8f2;
-  --gelo: #f4f7fa;
-  --branco: #ffffff;
-  --texto: #26354b;
-  --cinza: #657185;
-  --verde: #25d366;
-  --verde-hover: #1fb957;
-  --borda: #dfe6ee;
-  --sombra: 0 20px 55px rgba(13, 31, 57, .12);
+  --navy: #101f3a;
+  --navy-deep: #0b172c;
+  --navy-soft: #1b304f;
+  --blue-muted: #7895b1;
+  --ice: #f4f7fa;
+  --white: #ffffff;
+  --text: #26354b;
+  --muted: #657185;
+  --border: #dfe6ee;
+  --green: #25d366;
+  --green-hover: #1fb957;
+  --shadow: 0 18px 48px rgba(13,31,57,.11);
 }
 
 * {
@@ -25,13 +24,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 100px;
 }
 
 body {
   font-family: "Inter", sans-serif;
-  color: var(--texto);
-  background: var(--gelo);
+  color: var(--text);
+  background: var(--ice);
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -58,30 +57,48 @@ img {
 
 .container {
   width: min(1160px, calc(100% - 48px));
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
 ::selection {
-  background: #b6cde2;
-  color: var(--azul);
+  background: #bfd5e8;
+  color: var(--navy);
+}
+
+/* ÍCONES VETORIAIS */
+
+.icone {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+
+.icone-whatsapp {
+  fill: currentColor;
+  stroke: none;
 }
 
 /* CABEÇALHO */
 
 .cabecalho {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 0 auto;
   z-index: 1000;
-  background: rgba(16, 31, 58, .97);
+  background: rgba(16,31,58,.98);
   border-bottom: 1px solid rgba(255,255,255,.10);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 
 .barra {
-  min-height: 84px;
+  min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -96,42 +113,42 @@ img {
 
 .marca img {
   width: auto;
-  max-width: 210px;
-  max-height: 57px;
+  height: 77px;
+  max-width: 220px;
   object-fit: contain;
 }
 
 .navegacao {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 23px;
 }
 
 .navegacao a {
   color: #fff;
   font-size: 12px;
   font-weight: 600;
-  transition: color .25s;
   white-space: nowrap;
+  transition: color .2s;
 }
 
 .navegacao a:hover {
-  color: #b9d2e8;
+  color: #c2d9eb;
 }
 
 .menu-botao {
   display: none;
 }
 
-/* HERO */
+/* APRESENTAÇÃO */
 
 .hero {
-  min-height: 680px;
+  min-height: 690px;
   position: relative;
   display: flex;
   align-items: center;
-  padding: 165px 0 105px;
-  background: var(--azul);
+  padding: 175px 0 105px;
+  background: var(--navy);
   isolation: isolate;
 }
 
@@ -144,20 +161,19 @@ img {
 
 .hero-foto {
   background-image: url("imagens/fachada-editada.png");
-  background-position: center 45%;
   background-size: cover;
+  background-position: center 45%;
   background-repeat: no-repeat;
 }
 
 .hero-sombra {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(9,22,43,.95) 0%,
-      rgba(9,22,43,.85) 35%,
-      rgba(9,22,43,.45) 72%,
-      rgba(9,22,43,.22) 100%
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(9,22,43,.96) 0%,
+    rgba(9,22,43,.87) 36%,
+    rgba(9,22,43,.48) 73%,
+    rgba(9,22,43,.24) 100%
+  );
 }
 
 .hero-conteudo {
@@ -170,7 +186,7 @@ img {
   display: inline-block;
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: .19em;
+  letter-spacing: .18em;
   text-transform: uppercase;
 }
 
@@ -211,9 +227,9 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 15px 25px;
+  gap: 11px;
   min-height: 53px;
+  padding: 15px 25px;
   border-radius: 100px;
   font-size: 13px;
   font-weight: 700;
@@ -229,18 +245,23 @@ img {
   transform: translateY(-3px);
 }
 
+.botao .icone {
+  width: 17px;
+  height: 17px;
+}
+
 .botao-verde {
-  background: var(--verde);
+  background: var(--green);
   color: #082a18;
-  box-shadow: 0 10px 24px rgba(37,211,102,.17);
+  box-shadow: 0 10px 24px rgba(37,211,102,.16);
 }
 
 .botao-verde:hover {
-  background: var(--verde-hover);
+  background: var(--green-hover);
 }
 
 .botao-contorno {
-  color: #fff;
+  color: white;
   border: 1px solid rgba(255,255,255,.6);
   background: rgba(255,255,255,.06);
 }
@@ -249,19 +270,17 @@ img {
   background: rgba(255,255,255,.15);
 }
 
-/* FAIXA DE DESTAQUES */
+/* DIFERENCIAIS */
 
 .faixa-destaques {
-  background: var(--azul);
-  border-top: 1px solid rgba(255,255,255,.12);
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  background: var(--navy);
+  border-block: 1px solid rgba(255,255,255,.12);
 }
 
 .destaques {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding-top: 27px;
-  padding-bottom: 27px;
+  padding-block: 27px;
   gap: 20px;
 }
 
@@ -279,9 +298,10 @@ img {
   border-left: 1px solid rgba(255,255,255,.16);
 }
 
-.destaque-icone {
-  font-size: 19px;
+.destaques .icone {
   color: #b8d2e8;
+  width: 22px;
+  height: 22px;
 }
 
 /* SEÇÕES */
@@ -291,7 +311,7 @@ img {
 }
 
 .secao-clara {
-  background: var(--gelo);
+  background: var(--ice);
 }
 
 .etiqueta {
@@ -302,12 +322,12 @@ img {
 .secao h2 {
   font-size: clamp(30px, 3.5vw, 46px);
   font-weight: 800;
-  color: var(--azul);
+  color: var(--navy);
   margin-bottom: 23px;
 }
 
 .secao h2 span {
-  color: #7895b1;
+  color: var(--blue-muted);
 }
 
 .secao p {
@@ -322,7 +342,7 @@ img {
 }
 
 .titulo-central p {
-  color: var(--cinza);
+  color: var(--muted);
 }
 
 /* SOBRE */
@@ -335,15 +355,16 @@ img {
 }
 
 .sobre-imagem {
-  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
 }
 
 .sobre-imagem img {
   width: 100%;
   height: 475px;
   object-fit: cover;
-  border-radius: 18px;
-  box-shadow: var(--sombra);
+  object-position: center;
 }
 
 .texto-secao p {
@@ -353,9 +374,9 @@ img {
 
 .link-seta {
   display: inline-flex;
-  gap: 15px;
+  gap: 13px;
   align-items: center;
-  color: var(--azul);
+  color: var(--navy);
   font-size: 14px;
   font-weight: 800;
   margin-top: 17px;
@@ -370,7 +391,7 @@ img {
 /* ULTRASSONOGRAFIA */
 
 .secao-azul {
-  background: var(--azul);
+  background: var(--navy);
   color: white;
 }
 
@@ -395,7 +416,7 @@ img {
   margin: 0 auto;
   padding: 55px 45px;
   text-align: center;
-  background: #192e4d;
+  background: var(--navy-soft);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 22px;
   box-shadow: 0 20px 45px rgba(0,0,0,.12);
@@ -410,7 +431,12 @@ img {
   border-radius: 20px;
   background: rgba(255,255,255,.09);
   color: #c6def2;
-  font-size: 36px;
+}
+
+.servico-simbolo .icone {
+  width: 36px;
+  height: 36px;
+  stroke-width: 1.5;
 }
 
 .servico-unico h3 {
@@ -424,7 +450,7 @@ img {
   color: #cdd9e5;
 }
 
-/* EQUIPE */
+/* PROFISSIONAIS */
 
 .equipe-grid {
   display: grid;
@@ -443,9 +469,9 @@ img {
   height: 255px;
   max-width: 100%;
   margin: 0 auto 27px;
-  border-radius: 50%;
   padding: 8px;
   border: 1px solid #cbd8e4;
+  border-radius: 50%;
   background: #e3eaf1;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(16,31,58,.09);
@@ -461,7 +487,7 @@ img {
 
 .medico h3 {
   font-size: 23px;
-  color: var(--azul);
+  color: var(--navy);
   margin-bottom: 7px;
 }
 
@@ -471,7 +497,7 @@ img {
   font-weight: 600;
 }
 
-/* GALERIA */
+/* ESTRUTURA */
 
 .secao-estrutura {
   background: #e8eff5;
@@ -479,7 +505,7 @@ img {
 
 .galeria {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -499,7 +525,7 @@ img {
 /* CONTATO */
 
 .secao-contato {
-  background: #fff;
+  background: white;
 }
 
 .contato-grid {
@@ -514,7 +540,7 @@ img {
 }
 
 .contato-grid > div > p {
-  color: var(--cinza);
+  color: var(--muted);
   margin-bottom: 35px;
 }
 
@@ -526,15 +552,39 @@ img {
 }
 
 .contato-info strong {
-  color: var(--azul);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--navy);
   font-size: 13px;
 }
 
+.contato-info strong .icone {
+  width: 18px;
+  height: 18px;
+  color: #577b9c;
+}
+
+.contato-info strong .icone-whatsapp {
+  color: #18ad59;
+}
+
 .contato-info p {
-  margin-top: 5px;
-  color: var(--cinza);
+  margin-top: 7px;
+  color: var(--muted);
   font-size: 13px;
   line-height: 1.7;
+}
+
+.contato-info p a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contato-info p a .icone {
+  width: 13px;
+  height: 13px;
 }
 
 .contato-info a:hover {
@@ -544,10 +594,10 @@ img {
 
 .mapa {
   overflow: hidden;
-  background: var(--gelo);
-  border: 1px solid var(--borda);
+  background: var(--ice);
+  border: 1px solid var(--border);
   border-radius: 18px;
-  box-shadow: var(--sombra);
+  box-shadow: var(--shadow);
 }
 
 .mapa iframe {
@@ -558,12 +608,20 @@ img {
 }
 
 .mapa > a {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   padding: 20px;
   text-align: center;
-  color: var(--azul);
+  color: var(--navy);
   font-size: 13px;
   font-weight: 700;
+}
+
+.mapa > a .icone {
+  width: 15px;
+  height: 15px;
 }
 
 .mapa > a:hover {
@@ -573,9 +631,9 @@ img {
 /* RODAPÉ */
 
 .rodape {
-  background: var(--azul-escuro);
+  background: var(--navy-deep);
   color: #bdcbd9;
-  padding: 37px 0;
+  padding: 34px 0;
 }
 
 .rodape-conteudo {
@@ -587,8 +645,8 @@ img {
 
 .rodape img {
   width: auto;
-  max-width: 175px;
-  max-height: 53px;
+  height: 85px;
+  max-width: 190px;
   object-fit: contain;
 }
 
@@ -596,33 +654,38 @@ img {
   font-size: 12px;
 }
 
-/* WHATSAPP FLUTUANTE */
+/* WHATSAPP FIXO */
 
 .whatsapp-flutuante {
   position: fixed;
   right: 26px;
   bottom: 25px;
   z-index: 999;
-  width: 61px;
-  height: 61px;
-  display: grid;
-  place-items: center;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  background: var(--verde);
-  border: 3px solid #fff;
+  background: var(--green);
+  border: 3px solid white;
   border-radius: 50%;
   box-shadow: 0 8px 30px rgba(0,0,0,.22);
   transition: transform .25s, background .25s;
 }
 
 .whatsapp-flutuante svg {
-  width: 31px;
-  height: 31px;
+  display: block;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  fill: currentColor;
+  stroke: none;
 }
 
 .whatsapp-flutuante:hover {
-  transform: scale(1.09);
-  background: var(--verde-hover);
+  transform: scale(1.08);
+  background: var(--green-hover);
 }
 
 /* ACESSIBILIDADE */
@@ -632,7 +695,7 @@ img {
   outline-offset: 4px;
 }
 
-/* TABLETS */
+/* TABLET */
 
 @media (max-width: 1050px) {
   .navegacao {
@@ -644,7 +707,7 @@ img {
   }
 
   .marca img {
-    max-width: 170px;
+    height: 68px;
   }
 
   .sobre-grid,
@@ -653,7 +716,7 @@ img {
   }
 }
 
-/* CELULARES E MENU RESPONSIVO */
+/* CELULAR */
 
 @media (max-width: 800px) {
   .container {
@@ -661,12 +724,12 @@ img {
   }
 
   .barra {
-    min-height: 75px;
+    min-height: 82px;
   }
 
   .marca img {
-    max-width: 175px;
-    max-height: 52px;
+    height: 66px;
+    max-width: 180px;
   }
 
   .menu-botao {
@@ -694,11 +757,11 @@ img {
   .navegacao {
     display: none;
     position: absolute;
-    top: 75px;
+    top: 82px;
     left: 0;
     right: 0;
     padding: 18px 24px 25px;
-    background: var(--azul);
+    background: var(--navy);
     border-top: 1px solid rgba(255,255,255,.12);
     box-shadow: 0 15px 25px rgba(0,0,0,.15);
     flex-direction: column;
@@ -728,7 +791,7 @@ img {
   .hero-sombra {
     background: linear-gradient(
       90deg,
-      rgba(9,22,43,.93),
+      rgba(9,22,43,.94),
       rgba(9,22,43,.66)
     );
   }
@@ -789,8 +852,7 @@ img {
   .destaques {
     grid-template-columns: 1fr;
     gap: 14px;
-    padding-top: 23px;
-    padding-bottom: 23px;
+    padding-block: 23px;
   }
 
   .destaques > div {
@@ -867,6 +929,11 @@ img {
     height: 56px;
     right: 17px;
     bottom: 17px;
+  }
+
+  .whatsapp-flutuante svg {
+    width: 31px;
+    height: 31px;
   }
 }
 
