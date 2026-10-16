@@ -1,0 +1,3 @@
+Imagens para a branch galena-nova. Envie os arquivos desta pasta para a pasta imagens do GitHub (nao envie o ZIP diretamente).
+fachada-editada.png: imagem editada/gerada com acabamento fotografico, nao registro documental da fachada.
+logo-completa.png: imagem da logo fornecida na conversa.
