@@ -1,11 +1,14 @@
 
-/* GALENA MEDICINA INTEGRADA — ESTILO PRINCIPAL */
+/* ==========================================
+   GALENA MEDICINA INTEGRADA
+   ESTILO OFICIAL — VERSÃO CORRIGIDA
+   ========================================== */
 
 :root {
   --navy: #101f3a;
   --navy-deep: #0b172c;
   --navy-soft: #1b304f;
-  --blue-muted: #7895b1;
+  --blue: #7895b1;
   --ice: #f4f7fa;
   --white: #ffffff;
   --text: #26354b;
@@ -16,27 +19,34 @@
   --shadow: 0 18px 48px rgba(13,31,57,.11);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 105px;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   color: var(--text);
   background: var(--ice);
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  font-family: "Poppins", sans-serif;
+h1,
+h2,
+h3 {
+  font-family: "Poppins", Arial, sans-serif;
   line-height: 1.2;
   letter-spacing: -.035em;
 }
@@ -60,36 +70,87 @@ img {
   margin-inline: auto;
 }
 
-::selection {
-  background: #bfd5e8;
-  color: var(--navy);
-}
+/* ==========================================
+   ÍCONES — TAMANHOS CONTROLADOS
+   ========================================== */
 
-/* ÍCONES VETORIAIS */
-
-.icone {
+/* SVGs decorativos do HTML */
+svg.icone {
   display: inline-block;
-  width: 19px;
-  height: 19px;
-  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  flex: 0 0 18px;
+  vertical-align: middle;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+  overflow: visible;
+}
+
+/* WhatsApp usa preenchimento, não contorno */
+svg.icone-whatsapp {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  flex: 0 0 20px;
+  fill: currentColor;
+  stroke: none;
   vertical-align: middle;
 }
 
-.icone-whatsapp {
-  fill: currentColor;
-  stroke: none;
+/* Os ícones dentro dos botões nunca crescem */
+.botao svg.icone,
+.botao svg.icone-whatsapp {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  flex: 0 0 18px;
 }
 
-/* CABEÇALHO */
+/* Ícones das informações de contato */
+.contato-info strong svg {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  flex: 0 0 18px;
+}
+
+.contato-info p a svg,
+.mapa > a svg {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  max-width: 14px;
+  max-height: 14px;
+  flex: 0 0 14px;
+}
+
+/* ==========================================
+   CABEÇALHO
+   ========================================== */
 
 .cabecalho {
   position: fixed;
-  inset: 0 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   background: rgba(16,31,58,.98);
   border-bottom: 1px solid rgba(255,255,255,.10);
@@ -125,7 +186,7 @@ img {
 }
 
 .navegacao a {
-  color: #fff;
+  color: white;
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
@@ -140,7 +201,9 @@ img {
   display: none;
 }
 
-/* APRESENTAÇÃO */
+/* ==========================================
+   HERO — FACHADA
+   ========================================== */
 
 .hero {
   min-height: 690px;
@@ -221,7 +284,9 @@ img {
   margin-top: 35px;
 }
 
-/* BOTÕES */
+/* ==========================================
+   BOTÕES
+   ========================================== */
 
 .botao {
   display: inline-flex;
@@ -245,11 +310,6 @@ img {
   transform: translateY(-3px);
 }
 
-.botao .icone {
-  width: 17px;
-  height: 17px;
-}
-
 .botao-verde {
   background: var(--green);
   color: #082a18;
@@ -270,11 +330,14 @@ img {
   background: rgba(255,255,255,.15);
 }
 
-/* DIFERENCIAIS */
+/* ==========================================
+   DIFERENCIAIS
+   ========================================== */
 
 .faixa-destaques {
   background: var(--navy);
-  border-block: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
 .destaques {
@@ -298,13 +361,20 @@ img {
   border-left: 1px solid rgba(255,255,255,.16);
 }
 
-.destaques .icone {
-  color: #b8d2e8;
+.destaques svg.icone {
   width: 22px;
   height: 22px;
+  min-width: 22px;
+  min-height: 22px;
+  max-width: 22px;
+  max-height: 22px;
+  flex: 0 0 22px;
+  color: #b8d2e8;
 }
 
-/* SEÇÕES */
+/* ==========================================
+   SEÇÕES GERAIS
+   ========================================== */
 
 .secao {
   padding: 110px 0;
@@ -327,7 +397,7 @@ img {
 }
 
 .secao h2 span {
-  color: var(--blue-muted);
+  color: var(--blue);
 }
 
 .secao p {
@@ -345,7 +415,9 @@ img {
   color: var(--muted);
 }
 
-/* SOBRE */
+/* ==========================================
+   SOBRE A GALENA
+   ========================================== */
 
 .sobre-grid {
   display: grid;
@@ -388,7 +460,9 @@ img {
   color: #577a9c;
 }
 
-/* ULTRASSONOGRAFIA */
+/* ==========================================
+   ULTRASSONOGRAFIA
+   ========================================== */
 
 .secao-azul {
   background: var(--navy);
@@ -433,9 +507,14 @@ img {
   color: #c6def2;
 }
 
-.servico-simbolo .icone {
+.servico-simbolo svg.icone {
   width: 36px;
   height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  max-width: 36px;
+  max-height: 36px;
+  flex: 0 0 36px;
   stroke-width: 1.5;
 }
 
@@ -450,7 +529,9 @@ img {
   color: #cdd9e5;
 }
 
-/* PROFISSIONAIS */
+/* ==========================================
+   PROFISSIONAIS
+   ========================================== */
 
 .equipe-grid {
   display: grid;
@@ -497,7 +578,9 @@ img {
   font-weight: 600;
 }
 
-/* ESTRUTURA */
+/* ==========================================
+   GALERIA
+   ========================================== */
 
 .secao-estrutura {
   background: #e8eff5;
@@ -522,7 +605,9 @@ img {
   transform: translateY(-5px);
 }
 
-/* CONTATO */
+/* ==========================================
+   CONTATO
+   ========================================== */
 
 .secao-contato {
   background: white;
@@ -551,6 +636,10 @@ img {
   margin-bottom: 35px;
 }
 
+.contato-info > div {
+  min-width: 0;
+}
+
 .contato-info strong {
   display: flex;
   align-items: center;
@@ -559,13 +648,11 @@ img {
   font-size: 13px;
 }
 
-.contato-info strong .icone {
-  width: 18px;
-  height: 18px;
+.contato-info strong svg.icone {
   color: #577b9c;
 }
 
-.contato-info strong .icone-whatsapp {
+.contato-info strong svg.icone-whatsapp {
   color: #18ad59;
 }
 
@@ -582,17 +669,15 @@ img {
   gap: 5px;
 }
 
-.contato-info p a .icone {
-  width: 13px;
-  height: 13px;
-}
-
 .contato-info a:hover {
   color: #376b9b;
   text-decoration: underline;
 }
 
+/* MAPA */
+
 .mapa {
+  min-width: 0;
   overflow: hidden;
   background: var(--ice);
   border: 1px solid var(--border);
@@ -619,16 +704,13 @@ img {
   font-weight: 700;
 }
 
-.mapa > a .icone {
-  width: 15px;
-  height: 15px;
-}
-
 .mapa > a:hover {
   text-decoration: underline;
 }
 
-/* RODAPÉ */
+/* ==========================================
+   RODAPÉ
+   ========================================== */
 
 .rodape {
   background: var(--navy-deep);
@@ -654,7 +736,9 @@ img {
   font-size: 12px;
 }
 
-/* WHATSAPP FIXO */
+/* ==========================================
+   WHATSAPP FLUTUANTE
+   ========================================== */
 
 .whatsapp-flutuante {
   position: fixed;
@@ -674,11 +758,15 @@ img {
   transition: transform .25s, background .25s;
 }
 
-.whatsapp-flutuante svg {
+.whatsapp-flutuante svg.icone-whatsapp {
   display: block;
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
+  width: 31px;
+  height: 31px;
+  min-width: 31px;
+  min-height: 31px;
+  max-width: 31px;
+  max-height: 31px;
+  flex: 0 0 31px;
   fill: currentColor;
   stroke: none;
 }
@@ -688,14 +776,18 @@ img {
   background: var(--green-hover);
 }
 
-/* ACESSIBILIDADE */
+/* ==========================================
+   ACESSIBILIDADE
+   ========================================== */
 
 :focus-visible {
   outline: 3px solid #78b5f0;
   outline-offset: 4px;
 }
 
-/* TABLET */
+/* ==========================================
+   TABLETS
+   ========================================== */
 
 @media (max-width: 1050px) {
   .navegacao {
@@ -716,11 +808,13 @@ img {
   }
 }
 
-/* CELULAR */
+/* ==========================================
+   CELULARES
+   ========================================== */
 
 @media (max-width: 800px) {
   .container {
-    width: min(100% - 36px, 1160px);
+    width: calc(100% - 36px);
   }
 
   .barra {
@@ -833,7 +927,7 @@ img {
   }
 
   .hero h1 {
-    font-size: 37px;
+    font-size: clamp(31px, 9vw, 37px);
   }
 
   .hero p {
@@ -931,11 +1025,20 @@ img {
     bottom: 17px;
   }
 
-  .whatsapp-flutuante svg {
-    width: 31px;
-    height: 31px;
+  .whatsapp-flutuante svg.icone-whatsapp {
+    width: 29px;
+    height: 29px;
+    min-width: 29px;
+    min-height: 29px;
+    max-width: 29px;
+    max-height: 29px;
+    flex-basis: 29px;
   }
 }
+
+/* ==========================================
+   MOVIMENTO REDUZIDO
+   ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -948,68 +1051,4 @@ img {
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;
   }
-}
-
-/* CORREÇÃO DEFINITIVA DOS ÍCONES SVG */
-
-svg.icone {
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
-  min-height: 18px;
-  max-width: 18px;
-  max-height: 18px;
-  display: inline-block;
-  flex: 0 0 18px;
-  vertical-align: middle;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-svg.icone-whatsapp {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  max-width: 20px;
-  max-height: 20px;
-  flex: 0 0 20px;
-  fill: currentColor;
-  stroke: none;
-}
-
-.servico-simbolo svg.icone {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  min-height: 36px;
-  max-width: 36px;
-  max-height: 36px;
-}
-
-.whatsapp-flutuante svg.icone-whatsapp {
-  width: 31px;
-  height: 31px;
-  min-width: 31px;
-  min-height: 31px;
-  max-width: 31px;
-  max-height: 31px;
-  flex: 0 0 31px;
-  fill: currentColor;
-  stroke: none;
-}
-
-.contato-info strong,
-.contato-info p a,
-.mapa > a {
-  align-items: center;
-}
-
-.contato-info strong svg,
-.contato-info p a svg,
-.mapa > a svg {
-  flex-shrink: 0;
 }
