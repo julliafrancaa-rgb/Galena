@@ -1053,11 +1053,12 @@ svg.icone-whatsapp {
   }
 }
 
-/* AJUSTE EXCLUSIVO DA FOTO PRINCIPAL NO CELULAR */
+/* FOTO DA FACHADA — SOMENTE CELULAR */
 @media (max-width: 560px) {
   .hero-foto {
-    background-size: 100% auto;
-    background-position: center center;
+    background-size: auto 85%;
+    background-position: 65% top;
+    background-repeat: no-repeat;
     background-color: #101f3a;
   }
 }
