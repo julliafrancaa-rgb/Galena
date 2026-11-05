@@ -1057,7 +1057,7 @@ svg.icone-whatsapp {
 @media (max-width: 560px) {
   .hero-foto {
     background-size: auto 100%;
-    background-position: 85% top;
+    background-position: 100% top;
     background-repeat: no-repeat;
   }
 }
