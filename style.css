@@ -1061,3 +1061,10 @@ svg.icone-whatsapp {
     background-repeat: no-repeat;
   }
 }
+
+/* AJUSTE DA LOGO NO CELULAR */
+@media (max-width: 560px) {
+  .marca img {
+    transform: translateY(8px);
+  }
+}
