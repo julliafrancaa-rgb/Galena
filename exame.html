@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,798 +7,117 @@
   <title>Exames e Preparos | Galena Medicina Integrada</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-  
-<style>
-  :root {
-    --azul: #101f3a;
-    --azul2: #1b304f;
-    --detalhe: #7895b1;
-    --texto: #26354b;
-    --cinza: #657185;
-    --fundo: #f4f7fa;
-    --borda: #dfe6ee;
-    --branco: #ffffff;
-    --sombra: 0 20px 50px rgba(16, 31, 58, 0.065);
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    background: var(--fundo);
-    color: var(--texto);
-    font-family: "Inter", Arial, sans-serif;
-    line-height: 1.7;
-  }
-
-  button,
-  input,
-  a {
-    font: inherit;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible {
-    outline: 3px solid #8bbce7;
-    outline-offset: 3px;
-  }
-
-  /* CABEÇALHO */
-
-  header {
-    background: var(--azul);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    min-height: 100px;
-    padding: 14px max(24px, calc((100vw - 1160px) / 2));
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
-    color: #ffffff;
-    min-width: 0;
-  }
-
-  .logo img {
-    width: 57px;
-    height: 57px;
-    object-fit: contain;
-    flex-shrink: 0;
-  }
-
-  .texto-logo {
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 23px;
-    font-weight: 700;
-    letter-spacing: 0.17em;
-    line-height: 1.15;
-  }
-
-  .texto-logo span {
-    display: block;
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 0.24em;
-    margin-top: 7px;
-  }
-
-  .voltar {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #d8e5f0;
-    font-size: 13px;
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-
-  .voltar:hover {
-    color: #ffffff;
-  }
-
-  /* CONTEÚDO PRINCIPAL */
-
-  main {
-    max-width: 1160px;
-    margin: auto;
-    padding: 85px 24px 100px;
-  }
-
-  .apresentacao {
-    text-align: center;
-    max-width: 780px;
-    margin: 0 auto 52px;
-  }
-
-  .identificacao {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    font-weight: 800;
-    color: #607f9f;
-    text-transform: uppercase;
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-family: "Poppins", Arial, sans-serif;
-    letter-spacing: -0.035em;
-    line-height: 1.25;
-  }
-
-  h1 {
-    font-size: clamp(36px, 4.6vw, 56px);
-    font-weight: 800;
-    color: var(--azul);
-    margin: 18px 0 20px;
-  }
-
-  .apresentacao p {
-    max-width: 640px;
-    margin: 0 auto;
-    color: var(--cinza);
-    font-size: 15px;
-    line-height: 1.9;
-  }
-
-  /* PESQUISA */
-
-  .pesquisa {
-    background: #ffffff;
-    padding: 35px 38px;
-    border: 1px solid var(--borda);
-    border-radius: 20px;
-    box-shadow: var(--sombra);
-    margin-bottom: 25px;
-  }
-
-  .pesquisa label {
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--azul);
-    margin-bottom: 12px;
-  }
-
-  .pesquisa input {
-    width: 100%;
-    border: 1px solid #cddae6;
-    border-radius: 12px;
-    padding: 17px 20px;
-    outline: none;
-    font-size: 14px;
-    background: #f8fafc;
-    color: var(--texto);
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .pesquisa input:focus {
-    border-color: #7895b1;
-    box-shadow: 0 0 0 4px rgba(120, 149, 177, 0.16);
-  }
-
-  .ajuda-pesquisa {
-    font-size: 12px;
-    color: var(--cinza);
-    line-height: 1.7;
-    margin: 12px 0 0;
-  }
-
-  /* FILTROS */
-
-  .filtros {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 25px;
-  }
-
-  .filtro {
-    background: #ffffff;
-    border: 1px solid var(--borda);
-    color: #526b86;
-    padding: 10px 18px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 700;
-    transition: all 0.2s;
-  }
-
-  .filtro:hover {
-    border-color: var(--detalhe);
-    background: #f2f6fa;
-  }
-
-  .filtro.ativo {
-    background: var(--azul);
-    color: #ffffff;
-    border-color: var(--azul);
-  }
-
-  .contador {
-    font-size: 13px;
-    color: var(--cinza);
-    margin: 26px 0 20px;
-  }
-
-  /* LISTA DE EXAMES */
-
-  .lista-exames {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-  }
-
-  .cartao-exame {
-    background: #ffffff;
-    border: 1px solid var(--borda);
-    border-radius: 20px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    box-shadow: 0 12px 35px rgba(16, 31, 58, 0.035);
-    transition:
-      transform 0.25s,
-      box-shadow 0.25s,
-      border-color 0.25s;
-  }
-
-  .cartao-exame:hover {
-    transform: translateY(-3px);
-    border-color: #c8d8e6;
-    box-shadow: var(--sombra);
-  }
-
-  .categoria {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.17em;
-    color: #607f9f;
-    font-weight: 800;
-  }
-
-  .cartao-exame h2 {
-    font-size: 21px;
-    font-weight: 700;
-    color: var(--azul);
-    margin: 0;
-  }
-
-  .descricao {
-    font-size: 13px;
-    line-height: 1.85;
-    color: #59677b;
-    margin: 0;
-  }
-
-  .duracao {
-    font-size: 12px;
-    color: #526b86;
-    font-weight: 700;
-  }
-
-  /* BOTÕES */
-
-  .acoes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 11px;
-    margin-top: auto;
-    padding-top: 12px;
-  }
-
-  .botao {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 46px;
-    padding: 12px 20px;
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 700;
-    text-align: center;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition:
-      background 0.2s,
-      color 0.2s,
-      transform 0.2s;
-  }
-
-  .botao:hover {
-    transform: translateY(-2px);
-  }
-
-  .botao-secundario {
-    background: #eef3f8;
-    color: var(--azul);
-    border-color: #dfe7ef;
-  }
-
-  .botao-secundario:hover {
-    background: #e0eaf3;
-  }
-
-  .botao-whatsapp {
-    background: var(--azul);
-    color: #ffffff;
-    box-shadow: 0 8px 20px rgba(16, 31, 58, 0.13);
-  }
-
-  .botao-whatsapp:hover {
-    background: var(--azul2);
-  }
-
-  /* PREPARO DOS EXAMES */
-
-  .preparo {
-    display: none;
-    background: #f4f7fa;
-    padding: 20px;
-    border-radius: 13px;
-    border: 1px solid var(--borda);
-  }
-
-  .preparo.aberto {
-    display: block;
-  }
-
-  .preparo h3 {
-    color: var(--azul);
-    font-size: 14px;
-    margin: 0 0 9px;
-  }
-
-  .preparo p {
-    color: #59677b;
-    font-size: 12px;
-    line-height: 1.85;
-    margin: 0;
-  }
-
-  /* AVISOS */
-
-  .aviso {
-    margin-top: 40px;
-    color: var(--cinza);
-    font-size: 12px;
-    line-height: 1.9;
-  }
-
-  .vazio {
-    grid-column: 1 / -1;
-    background: #ffffff;
-    border: 1px solid var(--borda);
-    border-radius: 18px;
-    padding: 45px;
-    text-align: center;
-    color: var(--cinza);
-    font-size: 14px;
-  }
-
-  /* PÁGINA INDIVIDUAL DO EXAME */
-
-  .pagina-exame {
-    max-width: 900px;
-    margin: auto;
-    padding: 55px;
-    background: #ffffff;
-    border: 1px solid var(--borda);
-    border-radius: 22px;
-    box-shadow: var(--sombra);
-  }
-
-  .pagina-exame h1 {
-    font-size: clamp(29px, 4vw, 44px);
-  }
-
-  .pagina-exame > .descricao {
-    font-size: 15px;
-  }
-
-  .informacao-exame {
-    border-top: 1px solid var(--borda);
-    margin-top: 28px;
-    padding-top: 23px;
-  }
-
-  .informacao-exame h2 {
-    color: var(--azul);
-    font-size: 18px;
-  }
-
-  .informacao-exame p {
-    color: #59677b;
-    font-size: 14px;
-    line-height: 1.85;
-  }
-
-  .oculto {
-    display: none !important;
-  }
-
-  /* RODAPÉ */
-
-  footer {
-    background: #0b172c;
-    color: #b7c9da;
-    text-align: center;
-    padding: 38px 20px;
-    font-size: 12px;
-  }
-
-  /* RESPONSIVIDADE */
-
-  @media (max-width: 700px) {
-    header {
-      min-height: 82px;
-      padding: 12px 18px;
-    }
-
-    .logo {
-      gap: 10px;
-    }
-
-    .logo img {
-      width: 43px;
-      height: 43px;
-    }
-
-    .texto-logo {
-      font-size: 17px;
-      letter-spacing: 0.12em;
-    }
-
-    .texto-logo span {
-      font-size: 6px;
-      letter-spacing: 0.16em;
-    }
-
-    .voltar {
-      font-size: 11px;
-    }
-
-    main {
-      padding: 55px 17px 75px;
-    }
-
-    .apresentacao {
-      margin-bottom: 34px;
-    }
-
-    .apresentacao p {
-      font-size: 13px;
-    }
-
-    .pesquisa {
-      padding: 23px 20px;
-    }
-
-    .lista-exames {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .cartao-exame {
-      padding: 25px;
-    }
-
-    .cartao-exame h2 {
-      font-size: 19px;
-    }
-
-    .acoes .botao {
-      flex: 1;
-    }
-
-    .pagina-exame {
-      padding: 28px 23px;
-    }
-
-    .filtros {
-      gap: 8px;
-    }
-
-    .filtro {
-      padding: 9px 13px;
-      font-size: 11px;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .texto-logo {
-      font-size: 14px;
-    }
-
-    .logo img {
-      width: 35px;
-      height: 35px;
-    }
-
-    .voltar {
-      font-size: 10px;
-    }
-
-    .acoes {
-      flex-direction: column;
-    }
-
-    .acoes .botao {
-      width: 100%;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      transition: none !important;
-      scroll-behavior: auto !important;
-    }
-  }
-  
-/* CORREÇÃO DO CABEÇALHO DA GALENA */
-
-header.cabecalho-galena {
-    width: 100%;
-    min-height: 90px;
-    height: auto;
-    padding: 15px 6%;
-    display: flex;
-    align-items: center;
-    background: #101f3a;
-    overflow: hidden;
-}
-
-header.cabecalho-galena .cabecalho-conteudo {
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-header.cabecalho-galena a.logo-galena {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    width: auto;
-    height: auto;
-    flex-shrink: 0;
-}
-
-header.cabecalho-galena a.logo-galena img {
-    display: block;
-    width: 52px !important;
-    height: 52px !important;
-    max-width: 52px !important;
-    max-height: 52px !important;
-    min-width: 52px;
-    min-height: 52px;
-    object-fit: contain;
-    flex: 0 0 52px;
-    border-radius: 50%;
-}
-
-header.cabecalho-galena .logo-galena-texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-header.cabecalho-galena .logo-galena-texto strong {
-    font-family: "Poppins", sans-serif;
-    color: #ffffff;
-    font-size: 22px;
-    letter-spacing: 3px;
-    line-height: 1.2;
-}
-
-header.cabecalho-galena .logo-galena-texto span {
-    color: #ffffff;
-    font-size: 8px;
-    letter-spacing: 1.5px;
-    margin-top: 5px;
-}
-
-header.cabecalho-galena .voltar-galena {
-    color: #d5e1ee;
-    font-size: 12px;
-    white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-    header.cabecalho-galena {
-        min-height: 76px;
-        padding: 12px 16px;
-    }
-
-    header.cabecalho-galena a.logo-galena img {
-        width: 40px !important;
-        height: 40px !important;
-        max-width: 40px !important;
-        max-height: 40px !important;
-        min-width: 40px;
-        min-height: 40px;
-        flex-basis: 40px;
-    }
-
-    header.cabecalho-galena .logo-galena-texto strong {
-        font-size: 16px;
-        letter-spacing: 2px;
-    }
-
-    header.cabecalho-galena .logo-galena-texto span {
-        font-size: 6px;
-        letter-spacing: 1px;
-    }
-
-    header.cabecalho-galena .voltar-galena {
-        font-size: 10px;
-    }
-}
-
-</style>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+
+:root{--navy:#101f3a;--deep:#0b172c;--soft:#1b304f;--blue:#7895b1;--ice:#f4f7fa;--text:#26354b;--muted:#657185;--border:#dfe6ee;--white:#fff}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ice);color:var(--text);font:400 14px/1.75 "Inter",Arial,sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #80b7e7;outline-offset:3px}
+.container{width:min(1120px,calc(100% - 44px));margin:auto}
+.cabecalho{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.1)}
+.cabecalho-conteudo{min-height:91px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo-galena{display:inline-flex;align-items:center;gap:13px;min-width:0}
+.logo-galena img{display:block;width:47px;height:47px;object-fit:contain;flex:0 0 47px;border-radius:50%}
+.logo-galena-texto{display:flex;flex-direction:column;color:white;line-height:1.25}
+.logo-galena-texto strong{font:700 20px/1.2 "Montserrat",sans-serif;letter-spacing:.18em}
+.logo-galena-texto span{font-size:7px;letter-spacing:.21em;font-weight:700;margin-top:5px}
+.voltar-galena{color:#d4e3f0;font-weight:600;font-size:12px;white-space:nowrap;transition:color .2s}
+.voltar-galena:hover{color:white}
+.hero-exames{background:linear-gradient(115deg,#101f3a 0%,#152947 65%,#213a59 100%);position:relative;overflow:hidden;color:#fff;padding:92px 0 105px}
+.hero-exames::after{content:"";position:absolute;right:-130px;bottom:-230px;width:510px;height:510px;border:1px solid rgba(154,194,224,.16);border-radius:50%;box-shadow:0 0 0 65px rgba(154,194,224,.025),0 0 0 145px rgba(154,194,224,.025);pointer-events:none}
+.hero-exames .container{position:relative;z-index:1}
+.identificacao{display:inline-block;font-size:10px;letter-spacing:.24em;font-weight:800;color:#a8c8e3;text-transform:uppercase}
+h1,h2,h3{font-family:"Poppins",sans-serif;letter-spacing:-.035em;line-height:1.2}
+.hero-exames h1{font-size:clamp(37px,5.4vw,65px);font-weight:800;max-width:790px;margin:19px 0 23px}
+.hero-exames h1 span{color:#bfd6e9}
+.hero-exames p{font-size:15px;line-height:1.9;max-width:600px;color:#d8e4ef;margin:0}
+main{padding:0 0 95px}
+.catalogo-wrap{position:relative;margin-top:-47px;z-index:2}
+.pesquisa{background:#fff;padding:32px 36px;border:1px solid var(--border);border-radius:20px;box-shadow:0 20px 50px rgba(16,31,58,.09)}
+.pesquisa label{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px}
+.pesquisa input{display:block;width:100%;border:1px solid #cddae6;border-radius:12px;padding:16px 19px;background:#f8fafc;color:var(--text);font-size:14px;outline:none}
+.pesquisa input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(120,149,177,.15)}
+.ajuda-pesquisa{font-size:12px;color:var(--muted);margin:11px 0 0}
+.filtros{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.filtro{background:#fff;border:1px solid var(--border);color:#526b86;padding:9px 16px;border-radius:100px;font-size:12px;font-weight:700;transition:.2s}
+.filtro:hover{background:#edf3f8}.filtro.ativo{background:var(--navy);color:white;border-color:var(--navy)}
+.catalogo-intro{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:47px 0 21px}
+.catalogo-intro h2{font-size:clamp(23px,3vw,30px);font-weight:800;margin:0;color:var(--navy)}
+.contador{font-size:12px;color:var(--muted);margin:0}
+.lista-exames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.cartao-exame{display:flex;flex-direction:column;gap:15px;padding:31px;background:#fff;border:1px solid var(--border);border-radius:19px;box-shadow:0 10px 30px rgba(16,31,58,.035);transition:transform .2s,box-shadow .2s,border-color .2s}
+.cartao-exame:hover{transform:translateY(-3px);border-color:#c7d8e7;box-shadow:0 17px 38px rgba(16,31,58,.075)}
+.categoria{color:#607f9f;font-size:10px;text-transform:uppercase;letter-spacing:.17em;font-weight:800}
+.cartao-exame h2{font-size:20px;font-weight:800;color:var(--navy);margin:0}
+.descricao{font-size:13px;line-height:1.85;color:#59677b;margin:0}
+.duracao{font-size:12px;color:#526b86;font-weight:700}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:10px}
+.botao{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:11px 19px;border-radius:100px;font-size:12px;font-weight:700;text-align:center;border:1px solid transparent;transition:background .2s,transform .2s}
+.botao:hover{transform:translateY(-2px)}.botao-secundario{background:#eef3f8;color:var(--navy);border-color:#dfe7ef}.botao-secundario:hover{background:#e0eaf3}
+.botao-whatsapp{background:var(--navy);color:#fff;box-shadow:0 7px 18px rgba(16,31,58,.13)}.botao-whatsapp:hover{background:var(--soft)}
+.preparo{display:none;background:#f4f7fa;padding:19px;border-radius:12px;border:1px solid var(--border)}.preparo.aberto{display:block}
+.preparo h3{color:var(--navy);font-size:14px;margin:0 0 8px}.preparo p{color:#59677b;font-size:12px;line-height:1.85;margin:0}
+.aviso{margin:35px 0 0;color:var(--muted);font-size:12px;line-height:1.9}
+.vazio{grid-column:1/-1;background:#fff;border:1px solid var(--border);border-radius:18px;padding:45px;text-align:center;color:var(--muted)}
+.pagina-exame{max-width:900px;margin:70px auto 0;padding:50px;background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:0 20px 50px rgba(16,31,58,.06)}
+.pagina-exame h1{font-size:clamp(28px,4vw,43px);color:var(--navy);margin:18px 0}.pagina-exame>.descricao{font-size:15px}
+.informacao-exame{border-top:1px solid var(--border);margin-top:27px;padding-top:20px}.informacao-exame h2{color:var(--navy);font-size:18px}.informacao-exame p{color:#59677b;font-size:14px;line-height:1.85}
+.oculto{display:none!important}
+.rodape{background:var(--deep);color:#b7c9da;padding:32px 0}.rodape-conteudo{display:flex;align-items:center;justify-content:space-between;gap:24px}.rodape .marca{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.15em}.rodape .marca img{width:35px;height:35px;object-fit:contain}.rodape p{font-size:12px;margin:0}
+@media(max-width:700px){.container{width:calc(100% - 34px)}.cabecalho-conteudo{min-height:76px}.logo-galena img{width:38px;height:38px;flex-basis:38px}.logo-galena-texto strong{font-size:15px}.logo-galena-texto span{font-size:6px}.voltar-galena{font-size:10px}.hero-exames{padding:68px 0 98px}.hero-exames p{font-size:13px}.catalogo-wrap{margin-top:-42px}.pesquisa{padding:24px 20px}.catalogo-intro{margin-top:37px;align-items:flex-start;flex-direction:column}.lista-exames{grid-template-columns:1fr;gap:15px}.cartao-exame{padding:25px}.cartao-exame h2{font-size:19px}.acoes .botao{flex:1}.pagina-exame{margin-top:38px;padding:28px 23px}.rodape-conteudo{flex-direction:column;text-align:center}}
+@media(max-width:380px){.logo-galena{gap:8px}.logo-galena-texto strong{font-size:13px}.logo-galena-texto span{font-size:5px}.acoes{flex-direction:column}.acoes .botao{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+  </style>
 </head>
-
 <body>
-
-
-<header class="cabecalho-galena">
-  <div class="cabecalho-conteudo">
-
-    <a class="logo-galena" href="index.html" aria-label="Galena - Página inicial">
-      <img src="favicon.png" alt="Símbolo da Galena">
-
-      <div class="logo-galena-texto">
-        <strong>GALENA</strong>
-        <span>MEDICINA INTEGRADA</span>
+  <header class="cabecalho">
+    <div class="container cabecalho-conteudo">
+      <a class="logo-galena" href="index.html" aria-label="Galena - Página inicial">
+        <img src="favicon.png" alt="Símbolo da Galena">
+        <span class="logo-galena-texto"><strong>GALENA</strong><span>MEDICINA INTEGRADA</span></span>
+      </a>
+      <a class="voltar-galena" href="index.html">← Voltar ao início</a>
+    </div>
+  </header>
+  <section class="hero-exames">
+    <div class="container">
+      <span class="identificacao">GALENA | MEDICINA INTEGRADA</span>
+      <h1>Cuidado em cada detalhe.<br><span>Precisão em cada exame.</span></h1>
+      <p>Encontre seu exame, conheça os procedimentos e consulte as orientações para um atendimento tranquilo e bem informado.</p>
+    </div>
+  </section>
+  <main>
+    <section id="catalogo" class="container catalogo-wrap">
+      <div class="pesquisa">
+        <label for="busca">Qual exame você procura?</label>
+        <input type="search" id="busca" placeholder="Ex.: abdômen total, ultrassom da barriga, USG joelho" autocomplete="off">
+        <p class="ajuda-pesquisa">Pesquise pelo nome técnico, nome popular, região do corpo ou abreviações.</p>
+        <div class="filtros" id="filtros" aria-label="Filtrar exames por categoria"></div>
       </div>
-    </a>
-
-    <a class="voltar-galena" href="index.html">
-      <span>←</span>
-      Voltar ao início
-    </a>
-
-  </div>
-</header>
-
-
-<main>
-
-  <section id="catalogo">
-
-    <div class="apresentacao">
-      <span class="identificacao">
-        GALENA | MEDICINA INTEGRADA
-      </span>
-
-      <h1>Encontre seu exame.</h1>
-
-      <p>
-        Consulte nossos procedimentos, conheça suas finalidades
-        e encontre as orientações necessárias para seu atendimento.
-      </p>
-    </div>
-
-    <div class="pesquisa">
-      <label for="busca">
-        Qual exame você procura?
-      </label>
-
-      <input
-        type="search"
-        id="busca"
-        placeholder="Ex.: abdômen total, ultrassom da barriga, USG joelho"
-        autocomplete="off"
-      >
-
-      <p class="ajuda-pesquisa">
-        Você pode pesquisar pelo nome técnico, nome popular,
-        região do corpo ou abreviações.
-      </p>
-
-      <div class="filtros" id="filtros"></div>
-    </div>
-
-    <p class="contador" id="contador" role="status"></p>
-
-    <div class="lista-exames" id="lista-exames"></div>
-
-    <p class="aviso">
-      As informações apresentadas são orientativas e não substituem
-      a solicitação ou avaliação médica. A duração dos procedimentos
-      é aproximada. Confirme as orientações de preparo com a equipe
-      da Galena antes do atendimento.
-    </p>
-
-  </section>
-
-  <section class="pagina-exame oculto" id="detalhe">
-
-    <span class="identificacao">
-      GALENA | MEDICINA INTEGRADA
-    </span>
-
-    <h1 id="titulo-exame"></h1>
-
-    <p class="descricao" id="descricao-exame"></p>
-
-    <div class="informacao-exame">
-      <h2>Sobre o exame</h2>
-      <p id="sobre-exame"></p>
-    </div>
-
-    <div class="informacao-exame">
-      <h2>Duração estimada</h2>
-      <p id="tempo-exame"></p>
-    </div>
-
-    <div class="informacao-exame">
-      <h2>Preparo e orientações</h2>
-      <p id="preparo-exame"></p>
-      <p>
-        Confirme o preparo específico no momento do agendamento.
-      </p>
-    </div>
-
-    <div class="acoes">
-      <a
-        id="botao-agendamento"
-        class="botao botao-whatsapp"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Solicitar agendamento pelo WhatsApp
-      </a>
-
-      <a href="exames.html" class="botao botao-secundario">
-        Ver todos os exames
-      </a>
-    </div>
-
-  </section>
-
-</main>
-
-<footer>
-  © 2026 Galena Medicina Integrada
-</footer>
-
-<script>
+      <div class="catalogo-intro">
+        <h2>Conheça nossos <span style="color:#7895b1">exames.</span></h2>
+        <p class="contador" id="contador" role="status"></p>
+      </div>
+      <div class="lista-exames" id="lista-exames"></div>
+      <p class="aviso">As informações apresentadas são orientativas e não substituem a solicitação ou avaliação médica. A duração dos procedimentos é aproximada. Confirme as orientações de preparo com a equipe da Galena antes do atendimento.</p>
+    </section>
+    <section class="pagina-exame oculto" id="detalhe">
+      <span class="identificacao">GALENA | MEDICINA INTEGRADA</span>
+      <h1 id="titulo-exame"></h1>
+      <p class="descricao" id="descricao-exame"></p>
+      <div class="informacao-exame"><h2>Sobre o exame</h2><p id="sobre-exame"></p></div>
+      <div class="informacao-exame"><h2>Duração estimada</h2><p id="tempo-exame"></p></div>
+      <div class="informacao-exame"><h2>Preparo e orientações</h2><p id="preparo-exame"></p><p>Confirme o preparo específico no momento do agendamento.</p></div>
+      <div class="acoes">
+        <a id="botao-agendamento" class="botao botao-whatsapp" target="_blank" rel="noopener noreferrer">Solicitar agendamento pelo WhatsApp</a>
+        <a href="exames.html" class="botao botao-secundario">Ver todos os exames</a>
+      </div>
+    </section>
+  </main>
+  <footer class="rodape"><div class="container rodape-conteudo"><div class="marca"><img src="favicon.png" alt=""><span>GALENA</span></div><p>© 2026 Galena Medicina Integrada. Todos os direitos reservados.</p></div></footer>
+  <script>
 "use strict";
 
 /* ==========================================
@@ -1211,10 +529,18 @@ function normalizar(texto) {
 }
 
 function corresponde(exame, consulta) {
+  // Aceita termos populares com ou sem "ultrassom", "USG" ou "ecografia".
+  consulta = normalizar(consulta)
+    .replace(/\b(ultrassonografia|ultrassom|ultra som|ecografia|ecografico|usg|eco)\b/g, " ")
+    .replace(/\b(de|do|da|dos|das|na|no|para|um|uma)\b/g, " ")
+    .replace(/\s+/g, " ").trim();
   if (!consulta) return true;
 
   const termos = [exame.nome, ...exame.termos]
-    .map(normalizar);
+    .map(normalizar)
+    .map(t => t.replace(/\b(ultrassonografia|ultrassom|ultra som|ecografia|ecografico|usg|eco)\b/g, " ")
+      .replace(/\b(de|do|da|dos|das|na|no|para|um|uma)\b/g, " ")
+      .replace(/\s+/g, " ").trim());
 
   if (termos.some(t => t.includes(consulta))) {
     return true;
@@ -1499,7 +825,6 @@ if (exameSelecionado) {
   montarFiltros();
   renderizar();
 }
-</script>
-
+  </script>
 </body>
 </html>
