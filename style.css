@@ -1661,7 +1661,7 @@ button {
 @media (max-width: 600px) {
   .hero-foto {
     background-size: cover;
-    background-position: 90% center;
+    background-position: 95% center;
     background-repeat: no-repeat;
   }
 }
