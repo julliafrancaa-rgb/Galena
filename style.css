@@ -1444,4 +1444,68 @@ button {
   }
 }
 
+/* ==========================================
+   GALENA — CORREÇÃO DA ABERTURA NO CELULAR
+========================================== */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 660px;
+    padding: 135px 0 65px;
+    display: flex;
+    align-items: center;
+    background: #0b172c;
+  }
+
+  .hero-foto {
+    position: absolute;
+    inset: 0;
+    background-image: url("imagens/galena-fachada.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform: none;
+  }
+
+  .hero-sombra {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8,20,40,.68) 0%,
+      rgba(8,20,40,.78) 38%,
+      rgba(8,20,40,.94) 100%
+    );
+  }
+
+  .hero-conteudo {
+    position: relative;
+    z-index: 2;
+    padding-top: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(30px, 8vw, 39px);
+    line-height: 1.18;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .acoes {
+    margin-top: 27px;
+    gap: 12px;
+  }
+
+  .acoes .botao {
+    min-height: 52px;
+  }
+
+}
+
 
