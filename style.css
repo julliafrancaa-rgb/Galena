@@ -1648,7 +1648,7 @@ button {
 /* RENAN — DESCER O ENQUADRAMENTO */
 
 .medico:first-child .medico-foto img {
-  transform: scale(2.15) translateY(12%);
+  transform: scale(2.15) translateY(10%);
   transform-origin: center 20%;
 }
 
