@@ -566,6 +566,110 @@
       scroll-behavior: auto !important;
     }
   }
+  
+/* CORREÇÃO DO CABEÇALHO DA GALENA */
+
+header.cabecalho-galena {
+    width: 100%;
+    min-height: 90px;
+    height: auto;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    background: #101f3a;
+    overflow: hidden;
+}
+
+header.cabecalho-galena .cabecalho-conteudo {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+header.cabecalho-galena a.logo-galena {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+}
+
+header.cabecalho-galena a.logo-galena img {
+    display: block;
+    width: 52px !important;
+    height: 52px !important;
+    max-width: 52px !important;
+    max-height: 52px !important;
+    min-width: 52px;
+    min-height: 52px;
+    object-fit: contain;
+    flex: 0 0 52px;
+    border-radius: 50%;
+}
+
+header.cabecalho-galena .logo-galena-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header.cabecalho-galena .logo-galena-texto strong {
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    font-size: 22px;
+    letter-spacing: 3px;
+    line-height: 1.2;
+}
+
+header.cabecalho-galena .logo-galena-texto span {
+    color: #ffffff;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    margin-top: 5px;
+}
+
+header.cabecalho-galena .voltar-galena {
+    color: #d5e1ee;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    header.cabecalho-galena {
+        min-height: 76px;
+        padding: 12px 16px;
+    }
+
+    header.cabecalho-galena a.logo-galena img {
+        width: 40px !important;
+        height: 40px !important;
+        max-width: 40px !important;
+        max-height: 40px !important;
+        min-width: 40px;
+        min-height: 40px;
+        flex-basis: 40px;
+    }
+
+    header.cabecalho-galena .logo-galena-texto strong {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    header.cabecalho-galena .logo-galena-texto span {
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    header.cabecalho-galena .voltar-galena {
+        font-size: 10px;
+    }
+}
+
 </style>
 
 </head>
