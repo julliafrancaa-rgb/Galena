@@ -1178,3 +1178,9 @@ svg.icone-whatsapp {
   }
 }
 
+
+/* Refinamento dos nomes dos médicos */
+#equipe .medico h3 {
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
