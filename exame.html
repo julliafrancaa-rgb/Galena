@@ -11,393 +11,563 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --azul: #101f3a;
-      --azul2: #1d3657;
-      --detalhe: #7895b1;
-      --texto: #26354b;
-      --cinza: #657185;
-      --fundo: #f3f6f9;
-      --borda: #dfe7ef;
-      --verde: #20d36d;
-    }
+  
+<style>
+  :root {
+    --azul: #101f3a;
+    --azul2: #1b304f;
+    --detalhe: #7895b1;
+    --texto: #26354b;
+    --cinza: #657185;
+    --fundo: #f4f7fa;
+    --borda: #dfe6ee;
+    --branco: #ffffff;
+    --sombra: 0 20px 50px rgba(16, 31, 58, 0.065);
+  }
 
-    * {
-      box-sizing: border-box;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-      margin: 0;
-      background: var(--fundo);
-      color: var(--texto);
-      font-family: "Montserrat", Arial, sans-serif;
-    }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: "Inter", Arial, sans-serif;
+    line-height: 1.7;
+  }
 
-    button, input, a {
-      font: inherit;
-    }
+  button,
+  input,
+  a {
+    font: inherit;
+  }
 
-    a {
-      text-decoration: none;
-    }
+  button {
+    cursor: pointer;
+  }
 
-    button {
-      cursor: pointer;
-    }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    outline: 3px solid #8bbce7;
+    outline-offset: 3px;
+  }
+
+  /* CABEÇALHO */
+
+  header {
+    background: var(--azul);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    min-height: 100px;
+    padding: 14px max(24px, calc((100vw - 1160px) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    color: #ffffff;
+    min-width: 0;
+  }
+
+  .logo img {
+    width: 57px;
+    height: 57px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .texto-logo {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    line-height: 1.15;
+  }
+
+  .texto-logo span {
+    display: block;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    margin-top: 7px;
+  }
+
+  .voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #d8e5f0;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .voltar:hover {
+    color: #ffffff;
+  }
+
+  /* CONTEÚDO PRINCIPAL */
+
+  main {
+    max-width: 1160px;
+    margin: auto;
+    padding: 85px 24px 100px;
+  }
+
+  .apresentacao {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 52px;
+  }
+
+  .identificacao {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    font-weight: 800;
+    color: #607f9f;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Poppins", Arial, sans-serif;
+    letter-spacing: -0.035em;
+    line-height: 1.25;
+  }
+
+  h1 {
+    font-size: clamp(36px, 4.6vw, 56px);
+    font-weight: 800;
+    color: var(--azul);
+    margin: 18px 0 20px;
+  }
+
+  .apresentacao p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--cinza);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  /* PESQUISA */
+
+  .pesquisa {
+    background: #ffffff;
+    padding: 35px 38px;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    margin-bottom: 25px;
+  }
+
+  .pesquisa label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--azul);
+    margin-bottom: 12px;
+  }
+
+  .pesquisa input {
+    width: 100%;
+    border: 1px solid #cddae6;
+    border-radius: 12px;
+    padding: 17px 20px;
+    outline: none;
+    font-size: 14px;
+    background: #f8fafc;
+    color: var(--texto);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .pesquisa input:focus {
+    border-color: #7895b1;
+    box-shadow: 0 0 0 4px rgba(120, 149, 177, 0.16);
+  }
+
+  .ajuda-pesquisa {
+    font-size: 12px;
+    color: var(--cinza);
+    line-height: 1.7;
+    margin: 12px 0 0;
+  }
+
+  /* FILTROS */
+
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .filtro {
+    background: #ffffff;
+    border: 1px solid var(--borda);
+    color: #526b86;
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+
+  .filtro:hover {
+    border-color: var(--detalhe);
+    background: #f2f6fa;
+  }
+
+  .filtro.ativo {
+    background: var(--azul);
+    color: #ffffff;
+    border-color: var(--azul);
+  }
+
+  .contador {
+    font-size: 13px;
+    color: var(--cinza);
+    margin: 26px 0 20px;
+  }
+
+  /* LISTA DE EXAMES */
+
+  .lista-exames {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .cartao-exame {
+    background: #ffffff;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 12px 35px rgba(16, 31, 58, 0.035);
+    transition:
+      transform 0.25s,
+      box-shadow 0.25s,
+      border-color 0.25s;
+  }
+
+  .cartao-exame:hover {
+    transform: translateY(-3px);
+    border-color: #c8d8e6;
+    box-shadow: var(--sombra);
+  }
+
+  .categoria {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.17em;
+    color: #607f9f;
+    font-weight: 800;
+  }
+
+  .cartao-exame h2 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--azul);
+    margin: 0;
+  }
+
+  .descricao {
+    font-size: 13px;
+    line-height: 1.85;
+    color: #59677b;
+    margin: 0;
+  }
+
+  .duracao {
+    font-size: 12px;
+    color: #526b86;
+    font-weight: 700;
+  }
+
+  /* BOTÕES */
+
+  .acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: auto;
+    padding-top: 12px;
+  }
+
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      transform 0.2s;
+  }
+
+  .botao:hover {
+    transform: translateY(-2px);
+  }
+
+  .botao-secundario {
+    background: #eef3f8;
+    color: var(--azul);
+    border-color: #dfe7ef;
+  }
+
+  .botao-secundario:hover {
+    background: #e0eaf3;
+  }
+
+  .botao-whatsapp {
+    background: var(--azul);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(16, 31, 58, 0.13);
+  }
+
+  .botao-whatsapp:hover {
+    background: var(--azul2);
+  }
+
+  /* PREPARO DOS EXAMES */
+
+  .preparo {
+    display: none;
+    background: #f4f7fa;
+    padding: 20px;
+    border-radius: 13px;
+    border: 1px solid var(--borda);
+  }
+
+  .preparo.aberto {
+    display: block;
+  }
+
+  .preparo h3 {
+    color: var(--azul);
+    font-size: 14px;
+    margin: 0 0 9px;
+  }
+
+  .preparo p {
+    color: #59677b;
+    font-size: 12px;
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  /* AVISOS */
+
+  .aviso {
+    margin-top: 40px;
+    color: var(--cinza);
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  .vazio {
+    grid-column: 1 / -1;
+    background: #ffffff;
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    padding: 45px;
+    text-align: center;
+    color: var(--cinza);
+    font-size: 14px;
+  }
+
+  /* PÁGINA INDIVIDUAL DO EXAME */
+
+  .pagina-exame {
+    max-width: 900px;
+    margin: auto;
+    padding: 55px;
+    background: #ffffff;
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+    box-shadow: var(--sombra);
+  }
+
+  .pagina-exame h1 {
+    font-size: clamp(29px, 4vw, 44px);
+  }
+
+  .pagina-exame > .descricao {
+    font-size: 15px;
+  }
+
+  .informacao-exame {
+    border-top: 1px solid var(--borda);
+    margin-top: 28px;
+    padding-top: 23px;
+  }
+
+  .informacao-exame h2 {
+    color: var(--azul);
+    font-size: 18px;
+  }
+
+  .informacao-exame p {
+    color: #59677b;
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .oculto {
+    display: none !important;
+  }
+
+  /* RODAPÉ */
+
+  footer {
+    background: #0b172c;
+    color: #b7c9da;
+    text-align: center;
+    padding: 38px 20px;
+    font-size: 12px;
+  }
+
+  /* RESPONSIVIDADE */
+
+  @media (max-width: 700px) {
     header {
-      background: var(--azul);
-      padding: 20px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
+      min-height: 82px;
+      padding: 12px 18px;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: white;
-      text-decoration: none;
+      gap: 10px;
     }
 
     .logo img {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      object-fit: contain;
+      width: 43px;
+      height: 43px;
     }
 
     .texto-logo {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 3px;
+      font-size: 17px;
+      letter-spacing: 0.12em;
     }
 
     .texto-logo span {
-      display: block;
-      font-size: 8px;
-      letter-spacing: 2px;
-      margin-top: 4px;
+      font-size: 6px;
+      letter-spacing: 0.16em;
     }
 
     .voltar {
-      color: #d5e2ef;
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 11px;
     }
 
     main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 60px 24px 85px;
+      padding: 55px 17px 75px;
     }
 
     .apresentacao {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 38px;
-    }
-
-    .identificacao {
-      font-size: 11px;
-      letter-spacing: 3px;
-      font-weight: 700;
-      color: var(--detalhe);
-    }
-
-    h1 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(34px, 5vw, 52px);
-      color: var(--azul);
-      margin: 15px 0;
+      margin-bottom: 34px;
     }
 
     .apresentacao p {
-      color: var(--cinza);
-      font-size: 14px;
-      line-height: 1.9;
+      font-size: 13px;
     }
 
     .pesquisa {
-      background: white;
-      padding: 28px;
-      border: 1px solid var(--borda);
-      border-radius: 18px;
-      margin-bottom: 25px;
-    }
-
-    .pesquisa label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 13px;
-    }
-
-    .pesquisa input {
-      width: 100%;
-      border: 1px solid #ccd9e5;
-      border-radius: 11px;
-      padding: 17px 18px;
-      outline: none;
-      font-size: 14px;
-      background: #f9fbfd;
-    }
-
-    .pesquisa input:focus {
-      border-color: var(--detalhe);
-      box-shadow: 0 0 0 3px #7895b126;
-    }
-
-    .ajuda-pesquisa {
-      font-size: 11px;
-      color: var(--cinza);
-      line-height: 1.7;
-      margin-top: 11px;
-    }
-
-    .filtros {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 20px;
-    }
-
-    .filtro {
-      background: white;
-      border: 1px solid var(--borda);
-      color: var(--texto);
-      padding: 11px 16px;
-      border-radius: 30px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .filtro.ativo {
-      background: var(--azul);
-      color: white;
-      border-color: var(--azul);
-    }
-
-    .contador {
-      font-size: 12px;
-      color: var(--cinza);
-      margin: 22px 0;
+      padding: 23px 20px;
     }
 
     .lista-exames {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
 
     .cartao-exame {
-      background: white;
-      border: 1px solid var(--borda);
-      border-radius: 17px;
-      padding: 27px;
-      display: flex;
-      flex-direction: column;
-      gap: 13px;
-    }
-
-    .categoria {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--detalhe);
-      font-weight: 800;
+      padding: 25px;
     }
 
     .cartao-exame h2 {
-      font-size: 18px;
-      line-height: 1.5;
-      color: var(--azul);
-      margin: 0;
+      font-size: 19px;
     }
 
-    .descricao {
-      font-size: 12px;
-      line-height: 1.9;
-      color: #52657b;
-      margin: 0;
-    }
-
-    .duracao {
-      font-size: 12px;
-      color: var(--cinza);
-      font-weight: 600;
-    }
-
-    .acoes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: auto;
-      padding-top: 12px;
-    }
-
-    .botao {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 16px;
-      border-radius: 10px;
-      font-size: 11px;
-      font-weight: 800;
-      text-align: center;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .botao-secundario {
-      background: #edf3f8;
-      color: var(--azul);
-      border-color: #dfe7ef;
-    }
-
-    .botao-whatsapp {
-      background: var(--verde);
-      color: #0b2a20;
-    }
-
-    .botao:hover {
-      filter: brightness(0.96);
-    }
-
-    .preparo {
-      display: none;
-      background: #f5f8fb;
-      padding: 18px;
-      border-radius: 11px;
-      border: 1px solid var(--borda);
-    }
-
-    .preparo.aberto {
-      display: block;
-    }
-
-    .preparo h3 {
-      color: var(--azul);
-      font-size: 13px;
-      margin: 0 0 9px;
-    }
-
-    .preparo p {
-      color: #52657b;
-      font-size: 12px;
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    .aviso {
-      margin-top: 35px;
-      color: var(--cinza);
-      font-size: 11px;
-      line-height: 1.9;
-    }
-
-    .vazio {
-      grid-column: 1 / -1;
-      background: white;
-      border-radius: 15px;
-      padding: 35px;
-      text-align: center;
-      color: var(--cinza);
-      font-size: 13px;
+    .acoes .botao {
+      flex: 1;
     }
 
     .pagina-exame {
-      max-width: 850px;
-      margin: auto;
-      padding: 40px;
-      background: white;
-      border: 1px solid var(--borda);
-      border-radius: 18px;
+      padding: 28px 23px;
     }
 
-    .pagina-exame h1 {
-      font-size: clamp(29px, 4vw, 43px);
+    .filtros {
+      gap: 8px;
     }
 
-    .informacao-exame {
-      border-top: 1px solid var(--borda);
-      margin-top: 25px;
-      padding-top: 22px;
-    }
-
-    .informacao-exame h2 {
-      color: var(--azul);
-      font-size: 17px;
-    }
-
-    .informacao-exame p {
-      color: #52657b;
-      font-size: 13px;
-      line-height: 1.9;
-    }
-
-    .oculto {
-      display: none !important;
-    }
-
-    footer {
-      background: var(--azul);
-      color: #b7c9da;
-      text-align: center;
-      padding: 27px;
+    .filtro {
+      padding: 9px 13px;
       font-size: 11px;
     }
+  }
 
-    @media (max-width: 700px) {
-      header {
-        padding: 16px;
-      }
-
-      .texto-logo {
-        font-size: 15px;
-      }
-
-      .logo img {
-        width: 36px;
-        height: 36px;
-      }
-
-      .voltar {
-        font-size: 10px;
-      }
-
-      main {
-        padding: 38px 15px 65px;
-      }
-
-      .pesquisa {
-        padding: 19px;
-      }
-
-      .lista-exames {
-        grid-template-columns: 1fr;
-      }
-
-      .cartao-exame {
-        padding: 22px;
-      }
-
-      .acoes .botao {
-        flex: 1;
-      }
-
-      .pagina-exame {
-        padding: 24px;
-      }
+  @media (max-width: 380px) {
+    .texto-logo {
+      font-size: 14px;
     }
-  </style>
+
+    .logo img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .voltar {
+      font-size: 10px;
+    }
+
+    .acoes {
+      flex-direction: column;
+    }
+
+    .acoes .botao {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+
 </head>
 
 <body>
