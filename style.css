@@ -1656,4 +1656,14 @@ button {
   transform: scale(2.15) translateY(10%);
 }
 
+/* FACHADA — AJUSTE HORIZONTAL NO CELULAR */
+
+@media (max-width: 600px) {
+  .hero-foto {
+    background-size: cover;
+    background-position: 80% center;
+    background-repeat: no-repeat;
+  }
+}
+
 
