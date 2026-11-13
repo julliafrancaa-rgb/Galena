@@ -115,3 +115,51 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
+/* ==========================================
+   GALENA — MELHORIAS DO MENU LATERAL
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const menu = document.getElementById("menu");
+  const menuBotao = document.getElementById("menuBotao");
+  const menuFechar = document.getElementById("menuFechar");
+
+  if (!menu || !menuBotao || !menuFechar) return;
+
+  /* BOTÃO X — FECHAR MENU */
+
+  menuFechar.addEventListener("click", () => {
+    menu.classList.remove("ativo");
+
+    menuBotao.setAttribute("aria-expanded", "false");
+    menuBotao.setAttribute("aria-label", "Abrir menu");
+
+    document.body.style.overflow = "";
+  });
+
+  /* SINCRONIZAR ROLAGEM COM O MENU */
+
+  const observador = new MutationObserver(() => {
+    const aberto = menu.classList.contains("ativo");
+    document.body.style.overflow =
+      aberto && window.innerWidth <= 800 ? "hidden" : "";
+  });
+
+  observador.observe(menu, {
+    attributes: true,
+    attributeFilter: ["class"]
+  });
+
+  /* RESTAURAR ROLAGEM NO DESKTOP */
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 800) {
+      document.body.style.overflow = "";
+    }
+  });
+
+});
+
