@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,827 +6,1268 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Consulte exames, orientações e preparos da Galena Medicina Integrada.">
   <title>Exames e Preparos | Galena Medicina Integrada</title>
+
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
   <style>
-
-:root{--navy:#101f3a;--deep:#0b172c;--soft:#1b304f;--blue:#7895b1;--ice:#f4f7fa;--text:#26354b;--muted:#657185;--border:#dfe6ee;--white:#fff}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;padding-top:91px;background:var(--ice);color:var(--text);font:400 14px/1.75 "Inter",Arial,sans-serif;overflow-x:hidden}
-a{text-decoration:none;color:inherit}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #80b7e7;outline-offset:3px}
-.container{width:min(1120px,calc(100% - 44px));margin:auto}
-/* Cabeçalho fixo: mesmas regras de posicionamento e blur do style.css principal */
-.cabecalho{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(16,31,58,.98);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.cabecalho-conteudo{min-height:91px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo-galena{display:inline-flex;align-items:center;gap:13px;min-width:0}
-.logo-galena img{display:block;width:47px;height:47px;object-fit:contain;flex:0 0 47px;border-radius:50%}
-.logo-galena-texto{display:flex;flex-direction:column;color:white;line-height:1.25}
-.logo-galena-texto strong{font:700 20px/1.2 "Montserrat",sans-serif;letter-spacing:.18em}
-.logo-galena-texto span{font-size:7px;letter-spacing:.21em;font-weight:700;margin-top:5px}
-.voltar-galena{color:#d4e3f0;font-weight:600;font-size:12px;white-space:nowrap;transition:color .2s}
-.voltar-galena:hover{color:white}
-.hero-exames{background:linear-gradient(115deg,#101f3a 0%,#152947 65%,#213a59 100%);position:relative;overflow:hidden;color:#fff;padding:42px 0 65px}
-.hero-exames::after{content:"";position:absolute;right:-130px;bottom:-230px;width:510px;height:510px;border:1px solid rgba(154,194,224,.16);border-radius:50%;box-shadow:0 0 0 65px rgba(154,194,224,.025),0 0 0 145px rgba(154,194,224,.025);pointer-events:none}
-.hero-exames .container{position:relative;z-index:1}
-.identificacao{display:inline-block;font-size:10px;letter-spacing:.24em;font-weight:800;color:#a8c8e3;text-transform:uppercase}
-h1,h2,h3{font-family:"Poppins",sans-serif;letter-spacing:-.035em;line-height:1.2}
-.hero-exames h1{font-size:clamp(32px,4.3vw,48px);font-weight:800;max-width:790px;margin:10px 0 12px}
-.hero-exames h1 span{color:#bfd6e9}
-.hero-exames p{font-size:13px;line-height:1.7;max-width:600px;color:#d8e4ef;margin:0}
-main{padding:0 0 95px}
-.catalogo-wrap{position:relative;margin-top:-33px;z-index:2}
-.pesquisa{background:#fff;padding:24px 30px;border:1px solid var(--border);border-radius:20px;box-shadow:0 20px 50px rgba(16,31,58,.09)}
-.pesquisa label{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px}
-.pesquisa input{display:block;width:100%;border:1px solid #cddae6;border-radius:12px;padding:16px 19px;background:#f8fafc;color:var(--text);font-size:14px;outline:none}
-.pesquisa input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(120,149,177,.15)}
-.ajuda-pesquisa{font-size:12px;color:var(--muted);margin:11px 0 0}
-.filtros{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
-.filtro{background:#fff;border:1px solid var(--border);color:#526b86;padding:9px 16px;border-radius:100px;font-size:12px;font-weight:700;transition:.2s}
-.filtro:hover{background:#edf3f8}.filtro.ativo{background:var(--navy);color:white;border-color:var(--navy)}
-.catalogo-intro{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:47px 0 21px}
-.catalogo-intro h2{font-size:clamp(23px,3vw,30px);font-weight:800;margin:0;color:var(--navy)}
-.contador{font-size:12px;color:var(--muted);margin:0}
-.lista-exames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.cartao-exame{display:flex;flex-direction:column;gap:15px;padding:31px;background:#fff;border:1px solid var(--border);border-radius:19px;box-shadow:0 10px 30px rgba(16,31,58,.035);transition:transform .2s,box-shadow .2s,border-color .2s}
-.cartao-exame:hover{transform:translateY(-3px);border-color:#c7d8e7;box-shadow:0 17px 38px rgba(16,31,58,.075)}
-.categoria{color:#607f9f;font-size:10px;text-transform:uppercase;letter-spacing:.17em;font-weight:800}
-.cartao-exame h2{font-size:20px;font-weight:800;color:var(--navy);margin:0}
-.descricao{font-size:13px;line-height:1.85;color:#59677b;margin:0}
-.duracao{font-size:12px;color:#526b86;font-weight:700}
-.acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:10px}
-.botao{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:11px 19px;border-radius:100px;font-size:12px;font-weight:700;text-align:center;border:1px solid transparent;transition:background .2s,transform .2s}
-.botao:hover{transform:translateY(-2px)}.botao-secundario{background:#eef3f8;color:var(--navy);border-color:#dfe7ef}.botao-secundario:hover{background:#e0eaf3}
-.botao-whatsapp{background:var(--navy);color:#fff;box-shadow:0 7px 18px rgba(16,31,58,.13)}.botao-whatsapp:hover{background:var(--soft)}
-.preparo{display:none;background:#f4f7fa;padding:19px;border-radius:12px;border:1px solid var(--border)}.preparo.aberto{display:block}
-.preparo h3{color:var(--navy);font-size:14px;margin:0 0 8px}.preparo p{color:#59677b;font-size:12px;line-height:1.85;margin:0}
-.aviso{margin:35px 0 0;color:var(--muted);font-size:12px;line-height:1.9}
-.vazio{grid-column:1/-1;background:#fff;border:1px solid var(--border);border-radius:18px;padding:45px;text-align:center;color:var(--muted)}
-.pagina-exame{max-width:900px;margin:70px auto 0;padding:50px;background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:0 20px 50px rgba(16,31,58,.06)}
-.pagina-exame h1{font-size:clamp(28px,4vw,43px);color:var(--navy);margin:18px 0}.pagina-exame>.descricao{font-size:15px}
-.informacao-exame{border-top:1px solid var(--border);margin-top:27px;padding-top:20px}.informacao-exame h2{color:var(--navy);font-size:18px}.informacao-exame p{color:#59677b;font-size:14px;line-height:1.85}
-.oculto{display:none!important}
-.rodape{background:var(--deep);color:#b7c9da;padding:32px 0}.rodape-conteudo{display:flex;align-items:center;justify-content:space-between;gap:24px}.rodape .marca{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;letter-spacing:.15em}.rodape .marca img{width:35px;height:35px;object-fit:contain}.rodape p{font-size:12px;margin:0}
-@media(max-width:700px){.container{width:calc(100% - 34px)}.cabecalho-conteudo{min-height:76px}body{padding-top:76px}.logo-galena img{width:38px;height:38px;flex-basis:38px}.logo-galena-texto strong{font-size:15px}.logo-galena-texto span{font-size:6px}.voltar-galena{font-size:10px}.hero-exames{padding:35px 0 65px}.hero-exames h1{font-size:clamp(30px,7vw,40px);margin:9px 0 12px}.hero-exames p{font-size:13px}.catalogo-wrap{margin-top:-30px}.pesquisa{padding:20px 20px}.catalogo-intro{margin-top:37px;align-items:flex-start;flex-direction:column}.lista-exames{grid-template-columns:1fr;gap:15px}.cartao-exame{padding:25px}.cartao-exame h2{font-size:19px}.acoes .botao{flex:1}.pagina-exame{margin-top:38px;padding:28px 23px}.rodape-conteudo{flex-direction:column;text-align:center}}
-@media(max-width:380px){.logo-galena{gap:8px}.logo-galena-texto strong{font-size:13px}.logo-galena-texto span{font-size:5px}.acoes{flex-direction:column}.acoes .botao{width:100%}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
-  </style>
-</head>
-<body>
-  <header class="cabecalho">
-    <div class="container cabecalho-conteudo">
-      <a class="logo-galena" href="index.html" aria-label="Galena - Página inicial">
-        <img src="favicon.png" alt="Símbolo da Galena">
-        <span class="logo-galena-texto"><strong>GALENA</strong><span>MEDICINA INTEGRADA</span></span>
-      </a>
-      <a class="voltar-galena" href="index.html">← Voltar ao início</a>
-    </div>
-  </header>
-  <section class="hero-exames">
-    <div class="container">
-      <span class="identificacao">GALENA | MEDICINA INTEGRADA</span>
-      <h1>Cuidado em cada detalhe.<br><span>Precisão em cada exame.</span></h1>
-      <p>Encontre seu exame, conheça os procedimentos e consulte as orientações para um atendimento tranquilo e bem informado.</p>
-    </div>
-  </section>
-  <main>
-    <section id="catalogo" class="container catalogo-wrap">
-      <div class="pesquisa">
-        <label for="busca">Qual exame você procura?</label>
-        <input type="search" id="busca" placeholder="Ex.: abdômen total, ultrassom da barriga, USG joelho" autocomplete="off">
-        <p class="ajuda-pesquisa">Pesquise pelo nome técnico, nome popular, região do corpo ou abreviações.</p>
-        <div class="filtros" id="filtros" aria-label="Filtrar exames por categoria"></div>
-      </div>
-      <div class="catalogo-intro">
-        <h2>Conheça nossos <span style="color:#7895b1">exames.</span></h2>
-        <p class="contador" id="contador" role="status"></p>
-      </div>
-      <div class="lista-exames" id="lista-exames"></div>
-      <p class="aviso">As informações apresentadas são orientativas e não substituem a solicitação ou avaliação médica. A duração dos procedimentos é aproximada. Confirme as orientações de preparo com a equipe da Galena antes do atendimento.</p>
-    </section>
-    <section class="pagina-exame oculto" id="detalhe">
-      <span class="identificacao">GALENA | MEDICINA INTEGRADA</span>
-      <h1 id="titulo-exame"></h1>
-      <p class="descricao" id="descricao-exame"></p>
-      <div class="informacao-exame"><h2>Sobre o exame</h2><p id="sobre-exame"></p></div>
-      <div class="informacao-exame"><h2>Duração estimada</h2><p id="tempo-exame"></p></div>
-      <div class="informacao-exame"><h2>Preparo e orientações</h2><p id="preparo-exame"></p><p>Confirme o preparo específico no momento do agendamento.</p></div>
-      <div class="acoes">
-        <a id="botao-agendamento" class="botao botao-whatsapp" target="_blank" rel="noopener noreferrer">Solicitar agendamento pelo WhatsApp</a>
-        <a href="exames.html" class="botao botao-secundario">Ver todos os exames</a>
-      </div>
-    </section>
-  </main>
-  <footer class="rodape"><div class="container rodape-conteudo"><div class="marca"><img src="favicon.png" alt=""><span>GALENA</span></div><p>© 2026 Galena Medicina Integrada. Todos os direitos reservados.</p></div></footer>
-  <script>
-"use strict";
-
-/* ==========================================
-   CONFIGURAÇÕES
-========================================== */
-
-const WHATSAPP = "5541996895420";
-
-const categorias = [
-  "Todos",
-  "Abdome e pelve",
-  "Musculoesquelética",
-  "Outras regiões",
-  "Doppler"
-];
-
-/* ==========================================
-   CATÁLOGO DE EXAMES
-========================================== */
-
-const exames = [
-
-  {
-    id: "abdominal",
-    nome: "Ultrassonografia de Abdome Total",
-    categoria: "Abdome e pelve",
-    tempo: "20 a 30 minutos",
-    descricao: "Avalia órgãos do abdome, como fígado, vesícula biliar, pâncreas, baço e rins. Auxilia na investigação de alterações dessas estruturas.",
-    preparo: "Conforme orientação informada pela clínica: exames pela manhã, 8 horas de jejum; à tarde, 6 horas de jejum. Confirme as orientações sobre água e medicamentos com a equipe.",
-    termos: [
-      "abdomen", "abdômen", "abdome",
-      "abdomen total", "abdômen total",
-      "abdome total", "abd total",
-      "barriga", "ultrassom da barriga",
-      "ultrassom abdominal", "eco abdominal",
-      "ecografia abdominal", "usg abdomen",
-      "usg abdome", "usg abd total",
-      "figado", "fígado", "vesicula",
-      "vesícula", "ultrassom de abdomen"
-    ]
-  },
-
-  {
-    id: "prostata",
-    nome: "Ultrassonografia de Próstata por Via Abdominal",
-    categoria: "Abdome e pelve",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia a próstata pela região inferior do abdome, permitindo observar seu tamanho e características.",
-    preparo: "Geralmente requer bexiga cheia. Confirme com a equipe a quantidade de água e a antecedência necessária.",
-    termos: [
-      "prostata", "próstata", "prostatica",
-      "prostática", "ultrassom da prostata",
-      "ultrassom de próstata", "usg prostata",
-      "eco prostata", "prostata abdominal",
-      "prostata pela barriga",
-      "ultrassom masculino",
-      "ultrassom prostatico"
-    ]
-  },
-
-  {
-    id: "rins",
-    nome: "Ultrassonografia de Rins e Vias Urinárias",
-    categoria: "Abdome e pelve",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia os rins e a bexiga, auxiliando na investigação de cálculos, dilatações e outras alterações urinárias.",
-    preparo: "Geralmente requer bexiga cheia. Confirme as orientações específicas com a equipe.",
-    termos: [
-      "rim", "rins", "bexiga",
-      "vias urinarias", "vias urinárias",
-      "aparelho urinario", "trato urinario",
-      "ultrassom dos rins", "usg rins",
-      "eco rins", "ultrassom da bexiga",
-      "pedra nos rins", "calculo renal",
-      "cálculo renal", "renal",
-      "ultrassom renal"
-    ]
-  },
-
-  {
-    id: "parede",
-    nome: "Ultrassonografia de Parede Abdominal",
-    categoria: "Abdome e pelve",
-    tempo: "10 a 20 minutos",
-    descricao: "Examina os músculos e tecidos da parede do abdome, auxiliando na avaliação de hérnias e outras alterações locais.",
-    preparo: "Em geral, não exige preparo específico. Confirme as orientações no agendamento.",
-    termos: [
-      "parede abdominal", "parede da barriga",
-      "musculo da barriga", "músculo abdominal",
-      "hernia abdominal", "hérnia abdominal",
-      "hernia umbilical", "umbigo",
-      "usg parede abdominal",
-      "ultrassom parede abdominal",
-      "caroço na barriga"
-    ]
-  },
-
-  {
-    id: "inguinal",
-    nome: "Ultrassonografia de Região Inguinal",
-    categoria: "Abdome e pelve",
-    tempo: "10 a 20 minutos",
-    descricao: "Avalia os tecidos da região da virilha, auxiliando na investigação de hérnias e outras alterações locais.",
-    preparo: "Em geral, não exige preparo específico. Utilize roupas que facilitem o acesso à região.",
-    termos: [
-      "inguinal", "virilha",
-      "regiao inguinal", "região inguinal",
-      "hernia inguinal", "hérnia inguinal",
-      "ultrassom da virilha",
-      "usg inguinal", "caroço na virilha",
-      "eco inguinal"
-    ]
-  },
-
-  {
-    id: "pelvica",
-    nome: "Ultrassonografia Pélvica por Via Abdominal",
-    categoria: "Abdome e pelve",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia estruturas da pelve, como útero e ovários, por meio de imagens obtidas sobre a parte inferior do abdome.",
-    preparo: "Geralmente requer bexiga cheia. Confirme as orientações no agendamento.",
-    termos: [
-      "pelvica", "pélvica", "pelve",
-      "ultrassom pelvico", "ultrassom pélvico",
-      "usg pelvica", "eco pelvica",
-      "ultrassom do utero", "útero",
-      "ovarios", "ovários",
-      "pelvica abdominal",
-      "ultrassom ginecologico abdominal"
-    ]
-  },
-
-  {
-    id: "ombro",
-    nome: "Ultrassonografia de Ombro",
-    categoria: "Musculoesquelética",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia tendões, bursas e outras estruturas superficiais do ombro, auxiliando na investigação de alterações musculoesqueléticas.",
-    preparo: "Utilize roupa que facilite o acesso ao ombro.",
-    termos: [
-      "ombro", "usg ombro",
-      "ultrassom do ombro", "eco ombro",
-      "manguito rotador", "tendao ombro",
-      "tendão do ombro", "bursa ombro",
-      "ultrassom ombro direito",
-      "ultrassom ombro esquerdo"
-    ]
-  },
-
-  {
-    id: "quadril",
-    nome: "Ultrassonografia de Quadril",
-    categoria: "Musculoesquelética",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia estruturas superficiais ao redor do quadril, incluindo tendões, músculos e bursas, conforme a indicação médica.",
-    preparo: "Utilize roupa que facilite o acesso à região do quadril.",
-    termos: [
-      "quadril", "anca",
-      "usg quadril", "eco quadril",
-      "ultrassom do quadril",
-      "bursa quadril", "tendao quadril",
-      "quadril direito", "quadril esquerdo",
-      "quadril ad"
-    ]
-  },
-
-  {
-    id: "tornozelo",
-    nome: "Ultrassonografia de Tornozelo",
-    categoria: "Musculoesquelética",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia tendões, ligamentos acessíveis ao ultrassom e tecidos ao redor do tornozelo.",
-    preparo: "Utilize roupa e calçado que facilitem o acesso ao tornozelo.",
-    termos: [
-      "tornozelo", "usg tornozelo",
-      "ultrassom do tornozelo",
-      "eco tornozelo", "tendao aquiles",
-      "tendão de aquiles", "calcanhar",
-      "tornozelo direito",
-      "tornozelo esquerdo"
-    ]
-  },
-
-  {
-    id: "joelho",
-    nome: "Ultrassonografia de Joelho",
-    categoria: "Musculoesquelética",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia tendões, bursas e outras estruturas superficiais ao redor do joelho.",
-    preparo: "Utilize roupa que facilite o acesso ao joelho.",
-    termos: [
-      "joelho", "usg joelho",
-      "ultrassom do joelho", "eco joelho",
-      "tendao joelho", "bursa joelho",
-      "joelho direito", "joelho esquerdo",
-      "ultrassonografia joelho"
-    ]
-  },
-
-  {
-    id: "punho",
-    nome: "Ultrassonografia de Punho",
-    categoria: "Musculoesquelética",
-    tempo: "10 a 20 minutos",
-    descricao: "Avalia tendões, nervos e tecidos superficiais da região do punho, conforme a indicação médica.",
-    preparo: "Em geral, não exige preparo específico. Evite acessórios que dificultem o acesso ao punho.",
-    termos: [
-      "punho", "pulso",
-      "usg punho", "eco punho",
-      "ultrassom do punho",
-      "tunel do carpo", "túnel do carpo",
-      "punho direito", "punho esquerdo",
-      "ultrassom do pulso"
-    ]
-  },
-
-  {
-    id: "cotovelo",
-    nome: "Ultrassonografia de Cotovelo",
-    categoria: "Musculoesquelética",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia tendões, bursas e outras estruturas superficiais da região do cotovelo.",
-    preparo: "Utilize roupa que facilite o acesso ao cotovelo.",
-    termos: [
-      "cotovelo", "usg cotovelo",
-      "eco cotovelo",
-      "ultrassom do cotovelo",
-      "epicondilite", "tendao cotovelo",
-      "cotovelo direito",
-      "cotovelo esquerdo"
-    ]
-  },
-
-  {
-    id: "partes-moles",
-    nome: "Ultrassonografia de Partes Moles",
-    categoria: "Outras regiões",
-    tempo: "10 a 20 minutos",
-    descricao: "Avalia tecidos superficiais de uma região específica do corpo, como pele, tecido subcutâneo e músculos, conforme o pedido médico.",
-    preparo: "Informe à equipe qual região do corpo será examinada. Em geral, não exige preparo específico.",
-    termos: [
-      "partes moles", "tecidos moles",
-      "caroco", "caroço", "nodulo",
-      "nódulo", "bolinha", "lombinho",
-      "ultrassom partes moles",
-      "usg partes moles",
-      "ultrassom de tecidos",
-      "ultrassom de nodulo",
-      "massa superficial"
-    ]
-  },
-
-  {
-    id: "cervical",
-    nome: "Ultrassonografia de Região Cervical",
-    categoria: "Outras regiões",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia estruturas superficiais da região do pescoço, conforme a área indicada no pedido médico.",
-    preparo: "Em geral, não exige preparo específico. Evite acessórios no pescoço.",
-    termos: [
-      "cervical", "regiao cervical",
-      "região cervical", "pescoco",
-      "pescoço", "ultrassom do pescoço",
-      "usg cervical", "eco cervical",
-      "caroço no pescoço",
-      "ganglios cervicais",
-      "gânglios no pescoço",
-      "partes moles cervical"
-    ]
-  },
-
-  {
-    id: "mamas",
-    nome: "Ultrassonografia de Mamas e Axilas",
-    categoria: "Outras regiões",
-    tempo: "20 a 30 minutos",
-    descricao: "Avalia os tecidos mamários e as regiões axilares, auxiliando na investigação de nódulos, cistos e outras alterações.",
-    preparo: "Em geral, não exige preparo específico. Leve exames anteriores, se disponíveis.",
-    termos: [
-      "mama", "mamas", "seio", "seios",
-      "axila", "axilas", "mamaria",
-      "mamária", "ultrassom das mamas",
-      "ultrassom dos seios",
-      "ultrassom da mama",
-      "usg mama", "eco mamaria",
-      "ultrassom axilar",
-      "nodulo mama", "nódulo mamário",
-      "caroço no seio"
-    ]
-  },
-
-  {
-    id: "transvaginal",
-    nome: "Ultrassonografia Transvaginal",
-    categoria: "Outras regiões",
-    tempo: "15 a 20 minutos",
-    descricao: "Avalia útero, endométrio e ovários por meio de uma sonda vaginal, conforme a indicação médica.",
-    preparo: "Geralmente é realizado com a bexiga vazia. Confirme as orientações com a equipe.",
-    termos: [
-      "transvaginal", "vaginal",
-      "ultrassom vaginal",
-      "usg transvaginal",
-      "eco transvaginal",
-      "ultrassom intimo",
-      "ultrassom íntimo",
-      "ultrassom interno",
-      "ultrassom ginecologico",
-      "ultrassom do utero transvaginal"
-    ]
-  },
-
-  {
-    id: "tireoide",
-    nome: "Ultrassonografia de Tireoide",
-    categoria: "Outras regiões",
-    tempo: "10 a 20 minutos",
-    descricao: "Avalia a glândula tireoide, seu tamanho e suas características, incluindo a presença de nódulos.",
-    preparo: "Em geral, não exige preparo específico. Evite acessórios no pescoço.",
-    termos: [
-      "tireoide", "tireóide", "tiroide",
-      "tireoides", "usg tireoide",
-      "ultrassom da tireoide",
-      "eco tireoide",
-      "ultrassom da garganta",
-      "nodulo tireoide",
-      "nódulo na tireoide",
-      "pescoco", "pescoço"
-    ]
-  },
-
-  {
-    id: "doppler-tireoide",
-    nome: "Ultrassonografia de Tireoide com Doppler",
-    categoria: "Doppler",
-    tempo: "15 a 25 minutos",
-    descricao: "Avalia a tireoide e o fluxo sanguíneo na região examinada por meio da técnica Doppler.",
-    preparo: "Em geral, não exige preparo específico. Confirme as orientações no agendamento.",
-    termos: [
-      "doppler tireoide",
-      "doppler da tireoide",
-      "tireoide com doppler",
-      "doppler tireóide",
-      "eco doppler tireoide",
-      "ultrassom tireoide doppler",
-      "vascularizacao tireoide",
-      "vascularização tireoide"
-    ]
-  },
-
-  {
-    id: "doppler-carotidas",
-    nome: "Ultrassonografia Doppler de Carótidas e Vertebrais",
-    categoria: "Doppler",
-    tempo: "20 a 30 minutos",
-    descricao: "Avalia o fluxo sanguíneo nas artérias carótidas e vertebrais, localizadas no pescoço.",
-    preparo: "Em geral, não exige preparo específico. Evite acessórios no pescoço.",
-    termos: [
-      "carotidas", "carótidas",
-      "vertebrais", "doppler carotidas",
-      "doppler das carotidas",
-      "doppler cervical",
-      "doppler do pescoco",
-      "doppler do pescoço",
-      "vasos do pescoço",
-      "arterias do pescoco",
-      "artérias do pescoço",
-      "eco doppler carotidas",
-      "doppler carotidas e vertebrais"
-    ]
-  },
-
-  {
-    id: "doppler-venoso",
-    nome: "Ultrassonografia Doppler Venoso de Membro Inferior",
-    categoria: "Doppler",
-    tempo: "30 a 45 minutos",
-    descricao: "Avalia a circulação venosa das pernas, auxiliando na investigação de alterações como trombose e insuficiência venosa.",
-    preparo: "Em geral, não exige preparo específico. Confirme se o pedido é para uma perna ou ambas.",
-    termos: [
-      "doppler venoso", "doppler perna",
-      "doppler pernas", "doppler das pernas",
-      "doppler membro inferior",
-      "doppler membros inferiores",
-      "veias das pernas",
-      "circulacao das pernas",
-      "circulação das pernas",
-      "trombose", "varizes",
-      "eco doppler venoso",
-      "doppler venoso mmii",
-      "doppler venoso direito",
-      "doppler venoso esquerdo"
-    ]
-  }
-
-];
-
-/* ==========================================
-   PESQUISA INTELIGENTE
-========================================== */
-
-function normalizar(texto) {
-  return String(texto || "")
-    .toLocaleLowerCase("pt-BR")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ");
-}
-
-function corresponde(exame, consulta) {
-  // Aceita termos populares com ou sem "ultrassom", "USG" ou "ecografia".
-  consulta = normalizar(consulta)
-    .replace(/\b(ultrassonografia|ultrassom|ultra som|ecografia|ecografico|usg|eco)\b/g, " ")
-    .replace(/\b(de|do|da|dos|das|na|no|para|um|uma)\b/g, " ")
-    .replace(/\s+/g, " ").trim();
-  if (!consulta) return true;
-
-  const termos = [exame.nome, ...exame.termos]
-    .map(normalizar)
-    .map(t => t.replace(/\b(ultrassonografia|ultrassom|ultra som|ecografia|ecografico|usg|eco)\b/g, " ")
-      .replace(/\b(de|do|da|dos|das|na|no|para|um|uma)\b/g, " ")
-      .replace(/\s+/g, " ").trim());
-
-  if (termos.some(t => t.includes(consulta))) {
-    return true;
-  }
-
-  const palavras = consulta.split(" ");
-
-  return palavras.every(palavra =>
-    termos.some(termo =>
-      termo.split(" ").some(item =>
-        item.startsWith(palavra)
-      )
-    )
-  );
-}
-
-/* ==========================================
-   MENSAGENS PERSONALIZADAS DO WHATSAPP
-========================================== */
-
-function mensagemWhatsApp(exame) {
-  let complemento = "";
-
-  if (exame.id === "abdominal") {
-    complemento =
-      "Gostaria também de confirmar o preparo de jejum conforme o horário disponível.";
-  }
-
-  else if (
-    ["prostata", "rins", "pelvica"].includes(exame.id)
-  ) {
-    complemento =
-      "Poderiam me orientar sobre o preparo da bexiga?";
-  }
-
-  else if (exame.id === "partes-moles") {
-    complemento =
-      "Gostaria de confirmar como informar a região do corpo que será examinada.";
-  }
-
-  else if (exame.id === "doppler-venoso") {
-    complemento =
-      "Poderiam confirmar as opções para uma ou ambas as pernas?";
-  }
-
-  else if (exame.id === "mamas") {
-    complemento =
-      "Gostaria de saber os horários disponíveis e as orientações para o atendimento.";
-  }
-
-  else {
-    complemento =
-      "Gostaria de saber os horários disponíveis e as orientações necessárias.";
-  }
-
-  return (
-    "Olá! Vim pelo site da Galena Medicina Integrada " +
-    "e gostaria de solicitar um agendamento para o exame:\n\n" +
-    exame.nome +
-    "\n\n" +
-    complemento +
-    "\n\nPoderiam me ajudar?"
-  );
-}
-
-function linkWhatsApp(exame) {
-  return (
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    encodeURIComponent(mensagemWhatsApp(exame))
-  );
-}
-
-/* ==========================================
-   CATÁLOGO E FILTROS
-========================================== */
-
-const parametros = new URLSearchParams(
-  window.location.search
-);
-
-const exameId = parametros.get("exame");
-
-const exameSelecionado = exames.find(
-  exame => exame.id === exameId
-);
-
-const catalogo = document.getElementById("catalogo");
-const detalhe = document.getElementById("detalhe");
-
-if (exameSelecionado) {
-
-  catalogo.classList.add("oculto");
-  detalhe.classList.remove("oculto");
-
-  document.title =
-    exameSelecionado.nome + " | Galena";
-
-  document.getElementById("titulo-exame").textContent =
-    exameSelecionado.nome;
-
-  document.getElementById("descricao-exame").textContent =
-    exameSelecionado.descricao;
-
-  document.getElementById("sobre-exame").textContent =
-    exameSelecionado.descricao;
-
-  document.getElementById("tempo-exame").textContent =
-    exameSelecionado.tempo + " (estimativa)";
-
-  document.getElementById("preparo-exame").textContent =
-    exameSelecionado.preparo;
-
-  document.getElementById("botao-agendamento").href =
-    linkWhatsApp(exameSelecionado);
-
-} else {
-
-  const busca = document.getElementById("busca");
-  const filtros = document.getElementById("filtros");
-  const lista = document.getElementById("lista-exames");
-  const contador = document.getElementById("contador");
-
-  let categoriaAtual = "Todos";
-
-  function montarFiltros() {
-    filtros.replaceChildren();
-
-    categorias.forEach(categoria => {
-      const botao = document.createElement("button");
-
-      botao.type = "button";
-      botao.className = "filtro";
-      botao.textContent = categoria;
-
-      if (categoria === categoriaAtual) {
-        botao.classList.add("ativo");
-      }
-
-      botao.setAttribute(
-        "aria-pressed",
-        String(categoria === categoriaAtual)
-      );
-
-      botao.addEventListener("click", () => {
-        categoriaAtual = categoria;
-        montarFiltros();
-        renderizar();
-      });
-
-      filtros.appendChild(botao);
-    });
-  }
-
-  function renderizar() {
-    const consulta = normalizar(busca.value);
-
-    const resultados = exames.filter(exame => {
-      const categoriaCorreta =
-        categoriaAtual === "Todos" ||
-        exame.categoria === categoriaAtual;
-
-      return categoriaCorreta &&
-        corresponde(exame, consulta);
-    });
-
-    contador.textContent =
-      resultados.length +
-      (resultados.length === 1
-        ? " exame encontrado"
-        : " exames encontrados");
-
-    lista.replaceChildren();
-
-    if (resultados.length === 0) {
-      const vazio = document.createElement("p");
-
-      vazio.className = "vazio";
-      vazio.textContent =
-        "Nenhum exame encontrado. Tente outro termo ou entre em contato com nossa equipe.";
-
-      lista.appendChild(vazio);
-      return;
+    :root {
+      --navy: #101f3a;
+      --deep: #0b172c;
+      --soft: #1b304f;
+      --blue: #7895b1;
+      --ice: #f4f7fa;
+      --text: #26354b;
+      --muted: #657185;
+      --border: #dfe6ee;
+      --white: #fff;
     }
 
-    resultados.forEach(exame => {
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-      const cartao = document.createElement("article");
-      cartao.className = "cartao-exame";
+    html {
+      scroll-behavior: smooth;
+    }
 
-      const categoria = document.createElement("span");
-      categoria.className = "categoria";
-      categoria.textContent = exame.categoria;
+    body {
+      margin: 0;
+      padding-top: 96px;
+      background: var(--ice);
+      color: var(--text);
+      font: 400 14px/1.75 "Inter", Arial, sans-serif;
+      overflow-x: hidden;
+    }
 
-      const titulo = document.createElement("h2");
-      titulo.textContent = exame.nome;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-      const descricao = document.createElement("p");
-      descricao.className = "descricao";
-      descricao.textContent = exame.descricao;
+    button, input {
+      font: inherit;
+    }
 
-      const duracao = document.createElement("span");
-      duracao.className = "duracao";
-      duracao.textContent =
-        "Duração estimada: " + exame.tempo;
+    button {
+      cursor: pointer;
+    }
 
-      const preparo = document.createElement("div");
-      preparo.className = "preparo";
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible {
+      outline: 3px solid #80b7e7;
+      outline-offset: 3px;
+    }
 
-      const tituloPreparo = document.createElement("h3");
-      tituloPreparo.textContent =
-        "Preparo e orientações";
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin-inline: auto;
+    }
 
-      const textoPreparo = document.createElement("p");
-      textoPreparo.textContent = exame.preparo;
+    /* CABEÇALHO ORIGINAL DA GALENA */
 
-      preparo.append(tituloPreparo, textoPreparo);
+    .cabecalho {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(16, 31, 58, .98);
+      border-bottom: 1px solid rgba(255, 255, 255, .10);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
 
-      const acoes = document.createElement("div");
-      acoes.className = "acoes";
+    .cabecalho .barra {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
 
-      const botaoPreparo = document.createElement("button");
-      botaoPreparo.type = "button";
-      botaoPreparo.className =
-        "botao botao-secundario";
+    .cabecalho .marca {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
 
-      botaoPreparo.textContent =
-        "Ver preparo";
+    .cabecalho .marca img {
+      display: block;
+      width: auto;
+      height: 77px;
+      max-width: 220px;
+      object-fit: contain;
+    }
 
-      botaoPreparo.setAttribute(
-        "aria-expanded", "false"
+    .cabecalho .navegacao {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .cabecalho .navegacao a {
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color .2s;
+    }
+
+    .cabecalho .navegacao a:hover {
+      color: #c2d9eb;
+    }
+
+    /* ABERTURA DA CENTRAL */
+
+    .hero-exames {
+      background: linear-gradient(
+        115deg,
+        #101f3a 0%,
+        #152947 65%,
+        #213a59 100%
       );
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      padding: 42px 0 65px;
+    }
 
-      botaoPreparo.addEventListener("click", () => {
-        const aberto =
-          preparo.classList.toggle("aberto");
+    .hero-exames::after {
+      content: "";
+      position: absolute;
+      right: -130px;
+      bottom: -230px;
+      width: 510px;
+      height: 510px;
+      border: 1px solid rgba(154, 194, 224, .16);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 65px rgba(154, 194, 224, .025),
+        0 0 0 145px rgba(154, 194, 224, .025);
+      pointer-events: none;
+    }
 
-        botaoPreparo.textContent =
-          aberto ? "Ocultar preparo" : "Ver preparo";
+    .hero-exames .container {
+      position: relative;
+      z-index: 1;
+    }
 
-        botaoPreparo.setAttribute(
-          "aria-expanded",
-          String(aberto)
-        );
-      });
+    .identificacao {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: .24em;
+      font-weight: 800;
+      color: #a8c8e3;
+      text-transform: uppercase;
+    }
 
-      const botaoWhatsApp = document.createElement("a");
+    h1, h2, h3 {
+      font-family: "Poppins", sans-serif;
+      letter-spacing: -.035em;
+      line-height: 1.2;
+    }
 
-      botaoWhatsApp.className =
-        "botao botao-whatsapp";
+    .hero-exames h1 {
+      font-size: clamp(32px, 4.3vw, 48px);
+      font-weight: 800;
+      max-width: 790px;
+      margin: 10px 0 12px;
+    }
 
-      botaoWhatsApp.href =
-        linkWhatsApp(exame);
+    .hero-exames h1 span {
+      color: #bfd6e9;
+    }
 
-      botaoWhatsApp.target = "_blank";
-      botaoWhatsApp.rel = "noopener noreferrer";
+    .hero-exames p {
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 600px;
+      color: #d8e4ef;
+      margin: 0;
+    }
 
-      botaoWhatsApp.textContent =
-        "Solicitar agendamento";
+    /* CONTEÚDO E PESQUISA */
 
-      acoes.append(
-        botaoPreparo,
-        botaoWhatsApp
+    main {
+      padding: 0 0 95px;
+    }
+
+    .catalogo-wrap {
+      position: relative;
+      margin-top: -33px;
+      z-index: 2;
+    }
+
+    .pesquisa {
+      background: #fff;
+      padding: 24px 30px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(16, 31, 58, .09);
+    }
+
+    .pesquisa label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .pesquisa input {
+      display: block;
+      width: 100%;
+      border: 1px solid #cddae6;
+      border-radius: 12px;
+      padding: 16px 19px;
+      background: #f8fafc;
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+
+    .pesquisa input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(120, 149, 177, .15);
+    }
+
+    .ajuda-pesquisa {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 11px 0 0;
+    }
+
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .filtro {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: #526b86;
+      padding: 9px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .filtro:hover {
+      background: #edf3f8;
+    }
+
+    .filtro.ativo {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .catalogo-intro {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 47px 0 21px;
+    }
+
+    .catalogo-intro h2 {
+      font-size: clamp(23px, 3vw, 30px);
+      font-weight: 800;
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .contador {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* LISTA DE EXAMES */
+
+    .lista-exames {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .cartao-exame {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      box-shadow: 0 10px 30px rgba(16, 31, 58, .035);
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+    }
+
+    .cartao-exame:hover {
+      transform: translateY(-3px);
+      border-color: #c8d8e6;
+      box-shadow: 0 20px 45px rgba(16, 31, 58, .075);
+    }
+
+    .categoria {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .17em;
+      color: #607f9f;
+      font-weight: 800;
+    }
+
+    .cartao-exame h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    .descricao {
+      color: #59677b;
+      font-size: 12px;
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .duracao {
+      color: #526b86;
+      font-size: 11px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* BOTÕES DOS EXAMES */
+
+    .acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: auto;
+      padding-top: 9px;
+    }
+
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 16px;
+      border-radius: 100px;
+      font-family: "Inter", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+    }
+
+    .botao:hover {
+      transform: translateY(-2px);
+    }
+
+    .botao-secundario {
+      background: #eef3f8;
+      color: var(--navy);
+      border-color: #dfe7ef;
+    }
+
+    .botao-secundario:hover {
+      background: #e0eaf3;
+    }
+
+    .botao-whatsapp {
+      background: var(--navy);
+      color: #ffffff;
+      box-shadow: 0 7px 17px rgba(16, 31, 58, .12);
+    }
+
+    .botao-whatsapp:hover {
+      background: var(--soft);
+    }
+
+    /* PREPARO DOS EXAMES */
+
+    .preparo {
+      display: none;
+      background: #f4f7fa;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .preparo.aberto {
+      display: block;
+    }
+
+    .preparo h4 {
+      font-family: "Poppins", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 8px;
+    }
+
+    .preparo p {
+      font-size: 12px;
+      line-height: 1.8;
+      color: #59677b;
+      margin: 0;
+    }
+
+    /* AVISOS E RESULTADOS */
+
+    .aviso {
+      margin-top: 42px;
+      font-size: 11px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .vazio {
+      grid-column: 1 / -1;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 45px 25px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .oculto {
+      display: none !important;
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      background: var(--deep);
+      color: #b7c9da;
+      padding: 35px 0;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .rodape-conteudo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .rodape-logo {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .rodape-logo img {
+      display: block;
+      width: 130px;
+      max-height: 65px;
+      object-fit: contain;
+    }
+
+    footer p {
+      color: #b7c9da;
+      font-size: 11px;
+      margin: 0;
+    }
+
+    /* TABLETS */
+
+    @media (max-width: 900px) {
+      .cabecalho .barra {
+        min-height: 82px;
+      }
+
+      .cabecalho .marca img {
+        height: 64px;
+      }
+
+      body {
+        padding-top: 82px;
+      }
+
+      .hero-exames {
+        padding: 36px 0 60px;
+      }
+
+      .lista-exames {
+        gap: 16px;
+      }
+
+      .cartao-exame {
+        padding: 23px;
+      }
+    }
+
+    /* CELULARES */
+
+    @media (max-width: 650px) {
+      .container {
+        width: calc(100% - 34px);
+      }
+
+      body {
+        padding-top: 72px;
+      }
+
+      .cabecalho .barra {
+        min-height: 72px;
+        gap: 12px;
+      }
+
+      .cabecalho .marca img {
+        height: 52px;
+        max-width: 155px;
+      }
+
+      .cabecalho .navegacao {
+        gap: 8px;
+      }
+
+      .cabecalho .navegacao a {
+        font-size: 10px;
+      }
+
+      .hero-exames {
+        padding: 28px 0 55px;
+      }
+
+      .hero-exames h1 {
+        font-size: clamp(28px, 8vw, 38px);
+        margin: 10px 0;
+      }
+
+      .hero-exames p {
+        font-size: 12px;
+      }
+
+      .hero-exames::after {
+        width: 300px;
+        height: 300px;
+        right: -180px;
+        bottom: -160px;
+      }
+
+      .catalogo-wrap {
+        margin-top: -27px;
+      }
+
+      .pesquisa {
+        padding: 21px 18px;
+        border-radius: 16px;
+      }
+
+      .pesquisa input {
+        padding: 14px 15px;
+        font-size: 13px;
+      }
+
+      .filtros {
+        gap: 7px;
+      }
+
+      .filtro {
+        padding: 8px 12px;
+        font-size: 10px;
+      }
+
+      .catalogo-intro {
+        margin: 34px 0 17px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .catalogo-intro h2 {
+        font-size: 24px;
+      }
+
+      .lista-exames {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .cartao-exame {
+        padding: 23px 20px;
+      }
+
+      .cartao-exame h3 {
+        font-size: 17px;
+      }
+
+      .acoes {
+        gap: 8px;
+      }
+
+      .acoes .botao {
+        flex: 1;
+      }
+
+      .rodape-conteudo {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+
+      .rodape-logo img {
+        width: 115px;
+      }
+    }
+
+    /* CELULARES PEQUENOS */
+
+    @media (max-width: 380px) {
+      .cabecalho .marca img {
+        height: 43px;
+        max-width: 120px;
+      }
+
+      .cabecalho .navegacao a {
+        font-size: 9px;
+      }
+
+      .acoes {
+        flex-direction: column;
+      }
+
+      .acoes .botao {
+        width: 100%;
+      }
+    }
+
+    /* ACESSIBILIDADE */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- CABEÇALHO OFICIAL GALENA -->
+
+  <header class="cabecalho">
+    <div class="container barra">
+
+      <a
+        class="marca"
+        href="index.html"
+        aria-label="Galena Medicina Integrada - Página inicial"
+      >
+        <img
+          src="imagens/galena-logo-transparente.png"
+          alt="Galena Medicina Integrada"
+        >
+      </a>
+
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="index.html">
+          ← Voltar ao início
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ABERTURA DA CENTRAL -->
+
+  <section class="hero-exames">
+
+    <div class="container">
+
+      <span class="identificacao">
+        GALENA / MEDICINA INTEGRADA
+      </span>
+
+      <h1>
+        Informação que acolhe.
+        <span>Precisão que cuida.</span>
+      </h1>
+
+      <p>
+        Encontre seu exame, conheça sua finalidade
+        e consulte as orientações necessárias
+        para seu atendimento.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTEÚDO PRINCIPAL -->
+
+  <main>
+
+    <section
+      id="catalogo"
+      class="container catalogo-wrap"
+      aria-label="Catálogo de exames"
+    >
+
+      <!-- PESQUISA -->
+
+      <div class="pesquisa">
+
+        <label for="busca">
+          Qual exame você procura?
+        </label>
+
+        <input
+          type="search"
+          id="busca"
+          placeholder="Ex.: ultrassom da barriga, joelho, tireoide..."
+          autocomplete="off"
+          aria-describedby="ajuda-pesquisa"
+        >
+
+        <p
+          class="ajuda-pesquisa"
+          id="ajuda-pesquisa"
+        >
+          Pesquise pelo nome do exame, região do corpo,
+          nome popular ou abreviação.
+        </p>
+
+        <!-- FILTROS GERADOS PELO JAVASCRIPT -->
+
+        <div
+          class="filtros"
+          id="filtros"
+          aria-label="Filtrar exames por categoria"
+        ></div>
+
+      </div>
+
+
+      <!-- TÍTULO DO CATÁLOGO -->
+
+      <div class="catalogo-intro">
+
+        <h2>
+          Nossos exames
+        </h2>
+
+        <p
+          class="contador"
+          id="contador"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </div>
+
+
+      <!-- EXAMES GERADOS PELO JAVASCRIPT -->
+
+      <div
+        class="lista-exames"
+        id="lista-exames"
+      ></div>
+
+
+      <!-- ORIENTAÇÃO IMPORTANTE -->
+
+      <p class="aviso">
+        As informações apresentadas possuem caráter
+        orientativo e não substituem a avaliação
+        ou solicitação médica.
+
+        A duração dos exames é aproximada e pode variar
+        conforme a necessidade de cada atendimento.
+
+        Confirme sempre as orientações de preparo
+        com a equipe da Galena antes de comparecer
+        à clínica.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- RODAPÉ -->
+
+  <footer>
+
+    <div class="container rodape-conteudo">
+
+      <a
+        class="rodape-logo"
+        href="index.html"
+        aria-label="Voltar ao site da Galena"
+      >
+        <img
+          src="imagens/galena-logo-transparente.png"
+          alt="Galena Medicina Integrada"
+        >
+      </a>
+
+      <p>
+        © 2026 Galena Medicina Integrada.
+        Todos os direitos reservados.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT: CONTINUA NA PARTE 4 -->
+
+  <script>
+    "use strict";
+
+    const WHATSAPP = "5541991465346";
+    const categorias = [
+      "Todos",
+      "Abdome e pelve",
+      "Musculoesquelética",
+      "Outras regiões",
+      "Doppler"
+    ];
+
+    const exames = [
+
+      {
+        nome: "Ultrassonografia de Abdome Total",
+        categoria: "Abdome e pelve",
+        descricao: "Avalia órgãos abdominais, como fígado, vesícula, rins, baço, pâncreas e bexiga.",
+        duracao: "20 a 30 minutos",
+        termos: ["abdome", "barriga", "ultrassom abdominal", "usg abdome", "figado", "vesicula"],
+        preparo: "Geralmente é necessário jejum e bexiga cheia. Confirme com nossa equipe o tempo de jejum e a quantidade de água indicada para seu atendimento."
+      },
+      {
+        nome: "Ultrassonografia de Próstata",
+        categoria: "Abdome e pelve",
+        descricao: "Avalia a próstata e estruturas relacionadas, auxiliando na investigação de alterações urinárias.",
+        duracao: "15 a 25 minutos",
+        termos: ["prostata", "ultrassom da prostata", "usg prostata", "masculino"],
+        preparo: "Para o exame por via abdominal, geralmente é necessário estar com a bexiga cheia. Confirme as orientações com nossa equipe."
+      },
+      {
+        nome: "Ultrassonografia de Rins e Vias Urinárias",
+        categoria: "Abdome e pelve",
+        descricao: "Examina rins, bexiga e vias urinárias para investigar alterações estruturais e possíveis cálculos.",
+        duracao: "15 a 25 minutos",
+        termos: ["rins", "bexiga", "vias urinarias", "pedra no rim", "calculo renal", "renal"],
+        preparo: "Geralmente é necessário estar com a bexiga cheia. Confirme previamente a quantidade de água recomendada."
+      },
+      {
+        nome: "Ultrassonografia de Partes Moles",
+        categoria: "Outras regiões",
+        descricao: "Avalia tecidos superficiais, como músculos, tecido subcutâneo e regiões com nódulos ou alterações palpáveis.",
+        duracao: "15 a 25 minutos",
+        termos: ["partes moles", "nodulo", "caroco", "tecido subcutaneo", "lipoma", "cisto"],
+        preparo: "Normalmente não exige preparo específico. Informe à equipe qual região do corpo será examinada."
+      },
+      {
+        nome: "Ultrassonografia de Ombro",
+        categoria: "Musculoesquelética",
+        descricao: "Avalia tendões, músculos, bursas e outras estruturas do ombro.",
+        duracao: "15 a 25 minutos",
+        termos: ["ombro", "manguito rotador", "tendinite", "bursite", "dor no ombro"],
+        preparo: "Não costuma exigir preparo. Utilize roupas que facilitem a exposição do ombro."
+      },
+      {
+        nome: "Ultrassonografia de Quadril",
+        categoria: "Musculoesquelética",
+        descricao: "Avalia estruturas superficiais da articulação do quadril e tecidos ao redor.",
+        duracao: "15 a 25 minutos",
+        termos: ["quadril", "anca", "articulacao do quadril", "bursite trocanterica"],
+        preparo: "Não costuma exigir preparo. Prefira roupas confortáveis que facilitem o acesso à região."
+      },
+      {
+        nome: "Ultrassonografia de Tornozelo",
+        categoria: "Musculoesquelética",
+        descricao: "Examina tendões, ligamentos e tecidos superficiais do tornozelo.",
+        duracao: "15 a 25 minutos",
+        termos: ["tornozelo", "pe", "entorse", "ligamento", "tendao de aquiles"],
+        preparo: "Não costuma exigir preparo específico. Prefira roupas que permitam deixar o tornozelo descoberto."
+      },
+      {
+        nome: "Ultrassonografia de Joelho",
+        categoria: "Musculoesquelética",
+        descricao: "Avalia tendões, ligamentos superficiais, bursas e possíveis coleções líquidas no joelho.",
+        duracao: "15 a 25 minutos",
+        termos: ["joelho", "dor no joelho", "cisto de baker", "tendinite patelar"],
+        preparo: "Não costuma exigir preparo. Utilize roupas que facilitem a exposição do joelho."
+      },
+      {
+        nome: "Ultrassonografia de Punho",
+        categoria: "Musculoesquelética",
+        descricao: "Avalia tendões, nervos e outras estruturas superficiais do punho.",
+        duracao: "15 a 25 minutos",
+        termos: ["punho", "mao", "tunel do carpo", "cisto sinovial", "tendinite"],
+        preparo: "Não costuma exigir preparo específico. Retire acessórios da região, quando possível."
+      },
+      {
+        nome: "Ultrassonografia de Cotovelo",
+        categoria: "Musculoesquelética",
+        descricao: "Avalia tendões, músculos e estruturas superficiais próximas ao cotovelo.",
+        duracao: "15 a 25 minutos",
+        termos: ["cotovelo", "epicondilite", "tenista", "tendinite", "dor no cotovelo"],
+        preparo: "Não costuma exigir preparo. Prefira roupas que permitam deixar o cotovelo descoberto."
+      },
+      {
+        nome: "Ultrassonografia de Parede Abdominal",
+        categoria: "Abdome e pelve",
+        descricao: "Examina músculos e tecidos da parede abdominal, auxiliando na avaliação de hérnias e outras alterações.",
+        duracao: "15 a 25 minutos",
+        termos: ["parede abdominal", "hernia", "diastase", "musculo abdominal", "barriga"],
+        preparo: "Geralmente não exige jejum nem bexiga cheia. Confirme com nossa equipe se há alguma orientação específica."
+      },
+      {
+        nome: "Ultrassonografia de Região Inguinal",
+        categoria: "Outras regiões",
+        descricao: "Avalia a região da virilha, incluindo tecidos superficiais, linfonodos e possíveis hérnias.",
+        duracao: "15 a 25 minutos",
+        termos: ["inguinal", "virilha", "hernia inguinal", "linfonodos", "caroco na virilha"],
+        preparo: "Normalmente não exige preparo específico. Utilize roupas confortáveis."
+      },
+      {
+        nome: "Ultrassonografia Cervical",
+        categoria: "Outras regiões",
+        descricao: "Avalia estruturas superficiais do pescoço, como linfonodos e glândulas, conforme a solicitação médica.",
+        duracao: "15 a 25 minutos",
+        termos: ["cervical", "pescoco", "linfonodos cervicais", "ganglios", "caroco no pescoco"],
+        preparo: "Não costuma exigir preparo. Evite acessórios que dificultem o acesso ao pescoço."
+      },
+      {
+        nome: "Ultrassonografia de Mamas e Axilas",
+        categoria: "Outras regiões",
+        descricao: "Avalia o tecido mamário e as regiões axilares, auxiliando na investigação de nódulos e outras alterações.",
+        duracao: "20 a 30 minutos",
+        termos: ["mamas", "mama", "seios", "axilas", "ultrassom mamario", "nodulo mamario"],
+        preparo: "Não costuma exigir preparo específico. Leve exames anteriores, caso possua."
+      },
+      {
+        nome: "Ultrassonografia Transvaginal",
+        categoria: "Abdome e pelve",
+        descricao: "Avalia útero, endométrio e ovários por meio de uma sonda introduzida na vagina.",
+        duracao: "15 a 25 minutos",
+        termos: ["transvaginal", "endovaginal", "utero", "ovarios", "ultrassom ginecologico"],
+        preparo: "Geralmente é realizado com a bexiga vazia. Informe à equipe caso haja gestação ou alguma condição que exija cuidados específicos."
+      },
+      {
+        nome: "Ultrassonografia de Tireoide",
+        categoria: "Outras regiões",
+        descricao: "Avalia tamanho, estrutura e possíveis nódulos da glândula tireoide.",
+        duracao: "15 a 25 minutos",
+        termos: ["tireoide", "tireoides", "tiroide", "glandula", "nodulo na tireoide", "pescoco"],
+        preparo: "Não costuma exigir preparo específico. Evite colares e acessórios na região do pescoço."
+      },
+      {
+        nome: "Ultrassonografia Pélvica",
+        categoria: "Abdome e pelve",
+        descricao: "Avalia órgãos pélvicos por via abdominal, como útero, ovários e bexiga.",
+        duracao: "15 a 25 minutos",
+        termos: ["pelvica", "pelve", "utero", "ovarios", "ultrassom pelvico", "bexiga"],
+        preparo: "Geralmente é necessário estar com a bexiga cheia. Confirme com a equipe a quantidade de água e o horário recomendado."
+      },
+      {
+        nome: "Doppler de Tireoide",
+        categoria: "Doppler",
+        descricao: "Avalia a tireoide e o fluxo sanguíneo da glândula por meio do Doppler.",
+        duracao: "20 a 30 minutos",
+        termos: ["doppler tireoide", "doppler tiroide", "vascularizacao tireoide", "fluxo tireoide"],
+        preparo: "Não costuma exigir preparo específico. Evite acessórios na região do pescoço."
+      },
+      {
+        nome: "Doppler de Carótidas e Vertebrais",
+        categoria: "Doppler",
+        descricao: "Avalia o fluxo sanguíneo nas artérias carótidas e vertebrais do pescoço.",
+        duracao: "25 a 40 minutos",
+        termos: ["doppler carotidas", "carotidas", "vertebrais", "arterias do pescoco", "doppler cervical"],
+        preparo: "Geralmente não exige preparo específico. Utilize roupas que facilitem o acesso ao pescoço."
+      },
+      {
+        nome: "Doppler Venoso de Membros Inferiores",
+        categoria: "Doppler",
+        descricao: "Avalia a circulação venosa das pernas, auxiliando na investigação de trombose e insuficiência venosa.",
+        duracao: "30 a 50 minutos",
+        termos: ["doppler venoso", "doppler pernas", "membros inferiores", "mmii", "trombose", "varizes", "circulacao"],
+        preparo: "Geralmente não exige preparo específico. Prefira roupas confortáveis que facilitem a avaliação das pernas."
+      }
+    ];
+
+    // ELEMENTOS DA PÁGINA
+
+    const campoBusca = document.getElementById("busca");
+    const areaFiltros = document.getElementById("filtros");
+    const listaExames = document.getElementById("lista-exames");
+    const contador = document.getElementById("contador");
+
+    let categoriaAtual = "Todos";
+
+
+    // NORMALIZAÇÃO DE TEXTO
+    // Permite pesquisar sem acentos e sem diferenciar maiúsculas.
+
+    function normalizar(texto) {
+      return String(texto || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+    }
+
+
+    // SEGURANÇA PARA INSERÇÃO DE TEXTOS NO HTML
+
+    function escaparHTML(texto) {
+      return String(texto || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+
+    // LINK PERSONALIZADO DO WHATSAPP
+
+    function linkWhatsApp(nomeExame) {
+      const mensagem =
+        "Olá! Vim pelo site da Galena e gostaria " +
+        "de informações sobre o exame: " +
+        nomeExame +
+        ". Poderiam me ajudar com o agendamento?";
+
+      return (
+        "https://wa.me/" +
+        WHATSAPP +
+        "?text=" +
+        encodeURIComponent(mensagem)
       );
+    }
 
-      cartao.append(
-        categoria,
-        titulo,
-        descricao,
-        duracao,
-        preparo,
-        acoes
-      );
 
-      lista.appendChild(cartao);
+    // CRIAÇÃO DOS FILTROS
+
+    function renderizarFiltros() {
+      areaFiltros.innerHTML = categorias.map(categoria => {
+        const ativo = categoria === categoriaAtual;
+
+        return `
+          <button
+            type="button"
+            class="filtro ${ativo ? "ativo" : ""}"
+            data-categoria="${escaparHTML(categoria)}"
+            aria-pressed="${ativo}"
+          >
+            ${escaparHTML(categoria)}
+          </button>
+        `;
+      }).join("");
+    }
+
+
+    // VERIFICA SE O EXAME CORRESPONDE À PESQUISA
+
+    function correspondeBusca(exame, pesquisa) {
+      if (!pesquisa) return true;
+
+      const conteudo = [
+        exame.nome,
+        exame.categoria,
+        exame.descricao,
+        ...(exame.termos || [])
+      ].join(" ");
+
+      return normalizar(conteudo).includes(pesquisa);
+    }
+
+
+    // CRIAÇÃO DOS CARTÕES DOS EXAMES
+
+    function criarCartao(exame, indice) {
+      const identificador = "preparo-" + indice;
+
+      return `
+        <article class="cartao-exame">
+
+          <span class="categoria">
+            ${escaparHTML(exame.categoria)}
+          </span>
+
+          <h3>
+            ${escaparHTML(exame.nome)}
+          </h3>
+
+          <p class="descricao">
+            ${escaparHTML(exame.descricao)}
+          </p>
+
+          <p class="duracao">
+            Duração aproximada: ${escaparHTML(exame.duracao)}
+          </p>
+
+          <div
+            class="preparo"
+            id="${identificador}"
+          >
+            <h4>Orientações de preparo</h4>
+
+            <p>
+              ${escaparHTML(exame.preparo)}
+            </p>
+          </div>
+
+          <div class="acoes">
+
+            <button
+              type="button"
+              class="botao botao-secundario"
+              data-preparo="${identificador}"
+              aria-controls="${identificador}"
+              aria-expanded="false"
+            >
+              Ver preparo
+            </button>
+
+            <a
+              class="botao botao-whatsapp"
+              href="${linkWhatsApp(exame.nome)}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Solicitar agendamento de ${escaparHTML(exame.nome)} pelo WhatsApp"
+            >
+              Agendar exame
+            </a>
+
+          </div>
+
+        </article>
+      `;
+    }
+
+
+    // RENDERIZAÇÃO DA LISTA
+
+    function renderizarExames() {
+      const pesquisa = normalizar(campoBusca.value);
+
+      const encontrados = exames
+        .map((exame, indice) => ({ ...exame, indice }))
+        .filter(exame => {
+          const correspondeCategoria =
+            categoriaAtual === "Todos" ||
+            exame.categoria === categoriaAtual;
+
+          return (
+            correspondeCategoria &&
+            correspondeBusca(exame, pesquisa)
+          );
+        });
+
+      contador.textContent =
+        encontrados.length === 1
+          ? "1 exame encontrado"
+          : encontrados.length + " exames encontrados";
+
+      if (encontrados.length === 0) {
+        listaExames.innerHTML = `
+          <div class="vazio">
+            <strong>Nenhum exame encontrado.</strong>
+            <p>
+              Tente pesquisar por outro nome,
+              região do corpo ou termo mais simples.
+            </p>
+            <p>
+              Se precisar, nossa equipe pode ajudar
+              a identificar o exame solicitado.
+            </p>
+          </div>
+        `;
+
+        return;
+      }
+
+      listaExames.innerHTML = encontrados
+        .map(exame => criarCartao(exame, exame.indice))
+        .join("");
+    }
+
+
+    // EVENTO DE PESQUISA
+
+    campoBusca.addEventListener("input", () => {
+      renderizarExames();
     });
-  }
 
-  busca.addEventListener("input", renderizar);
 
-  montarFiltros();
-  renderizar();
-}
+    // EVENTO DOS FILTROS
+
+    areaFiltros.addEventListener("click", evento => {
+      const botao = evento.target.closest("[data-categoria]");
+
+      if (!botao) return;
+
+      categoriaAtual = botao.dataset.categoria;
+
+      renderizarFiltros();
+      renderizarExames();
+    });
+
+
+    // EVENTO DOS BOTÕES DE PREPARO
+
+    listaExames.addEventListener("click", evento => {
+      const botao = evento.target.closest("[data-preparo]");
+
+      if (!botao) return;
+
+      const identificador = botao.dataset.preparo;
+      const preparo = document.getElementById(identificador);
+
+      if (!preparo) return;
+
+      const aberto = preparo.classList.toggle("aberto");
+
+      botao.setAttribute(
+        "aria-expanded",
+        String(aberto)
+      );
+
+      botao.textContent = aberto
+        ? "Ocultar preparo"
+        : "Ver preparo";
+    });
+
+
+    // INICIALIZAÇÃO DA CENTRAL
+
+    renderizarFiltros();
+    renderizarExames();
+
   </script>
+
 </body>
 </html>
