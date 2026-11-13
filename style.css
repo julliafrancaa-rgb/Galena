@@ -1653,7 +1653,7 @@ button {
 }
 
 .medico:first-child:hover .medico-foto img {
-  transform: scale(2.15) translateY(12%);
+  transform: scale(2.15) translateY(10%);
 }
 
 
