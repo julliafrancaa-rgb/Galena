@@ -1611,4 +1611,38 @@ button {
 
 }
 
+/* ==========================================
+   CORREÇÃO DEFINITIVA — FOTO DR. RENAN
+========================================== */
+
+.medico:first-child .medico-foto {
+  height: 390px;
+  overflow: hidden;
+}
+
+.medico:first-child .medico-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+
+  object-fit: cover;
+  object-position: center 20%;
+
+  transform: scale(2.15);
+  transform-origin: center 20%;
+}
+
+/* Mantém o enquadramento ao passar o mouse */
+.medico:first-child:hover .medico-foto img {
+  transform: scale(2.15);
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .medico:first-child .medico-foto {
+    height: 340px;
+  }
+}
+
 
