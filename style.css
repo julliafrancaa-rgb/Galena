@@ -1310,3 +1310,45 @@ svg.icone-whatsapp {
     min-height: auto;
   }
 }
+
+/* ==========================================
+   GALENA — REFINAMENTO FINAL DA EQUIPE
+   ========================================== */
+
+#equipe .medico-informacoes {
+  max-width: 440px;
+}
+
+#equipe .medico h3 {
+  font-size: 24px;
+  line-height: 1.35;
+  min-height: 70px;
+  margin-bottom: 0;
+}
+
+#equipe .medico-linha {
+  width: 36px;
+  height: 2px;
+  margin: 14px auto;
+  background: #7895b1;
+}
+
+#equipe .medico p.medico-especialidade {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #526b86;
+  margin-bottom: 14px;
+}
+
+#equipe .medico p.medico-registro {
+  font-size: 13px;
+  color: #26354b;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 700px) {
+  #equipe .medico h3 {
+    font-size: 21px;
+    min-height: auto;
+  }
+}
