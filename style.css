@@ -1184,3 +1184,129 @@ svg.icone-whatsapp {
   margin-bottom: 18px;
   line-height: 1.45;
 }
+
+
+/* ==========================================
+   GALENA — EQUIPE MÉDICA EDITORIAL
+   ========================================== */
+
+#equipe .equipe-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 65px;
+  align-items: start;
+}
+
+#equipe .medico {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#equipe .medico-foto {
+  width: 245px;
+  height: 245px;
+  max-width: 100%;
+  margin: 0 auto 28px;
+  padding: 7px;
+  border: 1px solid #cbd8e4;
+  border-radius: 50%;
+  background: #e3eaf1;
+  box-shadow: 0 15px 35px rgba(16,31,58,.09);
+  overflow: hidden;
+}
+
+#equipe .medico-foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+#equipe .medico-informacoes {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#equipe .medico h3 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #101f3a;
+  margin: 0;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#equipe .medico-linha {
+  display: block;
+  width: 42px;
+  height: 2px;
+  background: #7895b1;
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+#equipe .medico p.medico-especialidade {
+  color: #526b86;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.8;
+  margin: 0 0 18px;
+}
+
+#equipe .medico p.medico-registro {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #26354b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+}
+
+#equipe .medico-registro span {
+  color: #a6b5c5;
+  padding: 0 8px;
+}
+
+@media (max-width: 700px) {
+  #equipe .equipe-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    gap: 60px;
+  }
+
+  #equipe .medico {
+    padding: 0;
+  }
+
+  #equipe .medico-foto {
+    width: 215px;
+    height: 215px;
+  }
+
+  #equipe .medico h3 {
+    font-size: 20px;
+    min-height: auto;
+  }
+}
