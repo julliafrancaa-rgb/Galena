@@ -1944,3 +1944,36 @@ button {
   flex-shrink: 0;
 }
 
+/* ==========================================
+   GALENA — REFINAMENTO DA PRIMEIRA TELA
+========================================== */
+
+/* Computador */
+@media (min-width: 801px) {
+  .hero {
+    background-position: center center;
+  }
+
+  .hero::before {
+    background: linear-gradient(
+      90deg,
+      rgba(11, 23, 44, 0.88) 0%,
+      rgba(11, 23, 44, 0.72) 38%,
+      rgba(11, 23, 44, 0.30) 72%,
+      rgba(11, 23, 44, 0.12) 100%
+    );
+  }
+}
+
+/* Celular */
+@media (max-width: 800px) {
+  .hero::before {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 23, 44, 0.65) 0%,
+      rgba(11, 23, 44, 0.83) 45%,
+      rgba(11, 23, 44, 0.68) 100%
+    );
+  }
+}
+
