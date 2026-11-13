@@ -1645,4 +1645,15 @@ button {
   }
 }
 
+/* RENAN — DESCER O ENQUADRAMENTO */
+
+.medico:first-child .medico-foto img {
+  transform: scale(2.15) translateY(12%);
+  transform-origin: center 20%;
+}
+
+.medico:first-child:hover .medico-foto img {
+  transform: scale(2.15) translateY(12%);
+}
+
 
