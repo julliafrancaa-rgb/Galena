@@ -844,307 +844,294 @@
 
   <!-- JAVASCRIPT: CONTINUA NA PARTE 4 -->
 
-  <script>
-    "use strict";
 
-    const WHATSAPP = "5541991465346";
-    const categorias = [
-      "Todos",
-      "Abdome e pelve",
-      "Musculoesquelética",
-      "Outras regiões",
-      "Doppler"
-    ];
+<script>
+  "use strict";
 
-    const exames = [
+  const WHATSAPP = "5541991465346";
 
-      {
-        nome: "Ultrassonografia de Abdome Total",
-        categoria: "Abdome e pelve",
-        descricao: "Avalia órgãos abdominais, como fígado, vesícula, rins, baço, pâncreas e bexiga.",
-        duracao: "20 a 30 minutos",
-        termos: ["abdome", "barriga", "ultrassom abdominal", "usg abdome", "figado", "vesicula"],
-        preparo: "Geralmente é necessário jejum e bexiga cheia. Confirme com nossa equipe o tempo de jejum e a quantidade de água indicada para seu atendimento."
-      },
-      {
-        nome: "Ultrassonografia de Próstata",
-        categoria: "Abdome e pelve",
-        descricao: "Avalia a próstata e estruturas relacionadas, auxiliando na investigação de alterações urinárias.",
-        duracao: "15 a 25 minutos",
-        termos: ["prostata", "ultrassom da prostata", "usg prostata", "masculino"],
-        preparo: "Para o exame por via abdominal, geralmente é necessário estar com a bexiga cheia. Confirme as orientações com nossa equipe."
-      },
-      {
-        nome: "Ultrassonografia de Rins e Vias Urinárias",
-        categoria: "Abdome e pelve",
-        descricao: "Examina rins, bexiga e vias urinárias para investigar alterações estruturais e possíveis cálculos.",
-        duracao: "15 a 25 minutos",
-        termos: ["rins", "bexiga", "vias urinarias", "pedra no rim", "calculo renal", "renal"],
-        preparo: "Geralmente é necessário estar com a bexiga cheia. Confirme previamente a quantidade de água recomendada."
-      },
-      {
-        nome: "Ultrassonografia de Partes Moles",
-        categoria: "Outras regiões",
-        descricao: "Avalia tecidos superficiais, como músculos, tecido subcutâneo e regiões com nódulos ou alterações palpáveis.",
-        duracao: "15 a 25 minutos",
-        termos: ["partes moles", "nodulo", "caroco", "tecido subcutaneo", "lipoma", "cisto"],
-        preparo: "Normalmente não exige preparo específico. Informe à equipe qual região do corpo será examinada."
-      },
-      {
-        nome: "Ultrassonografia de Ombro",
-        categoria: "Musculoesquelética",
-        descricao: "Avalia tendões, músculos, bursas e outras estruturas do ombro.",
-        duracao: "15 a 25 minutos",
-        termos: ["ombro", "manguito rotador", "tendinite", "bursite", "dor no ombro"],
-        preparo: "Não costuma exigir preparo. Utilize roupas que facilitem a exposição do ombro."
-      },
-      {
-        nome: "Ultrassonografia de Quadril",
-        categoria: "Musculoesquelética",
-        descricao: "Avalia estruturas superficiais da articulação do quadril e tecidos ao redor.",
-        duracao: "15 a 25 minutos",
-        termos: ["quadril", "anca", "articulacao do quadril", "bursite trocanterica"],
-        preparo: "Não costuma exigir preparo. Prefira roupas confortáveis que facilitem o acesso à região."
-      },
-      {
-        nome: "Ultrassonografia de Tornozelo",
-        categoria: "Musculoesquelética",
-        descricao: "Examina tendões, ligamentos e tecidos superficiais do tornozelo.",
-        duracao: "15 a 25 minutos",
-        termos: ["tornozelo", "pe", "entorse", "ligamento", "tendao de aquiles"],
-        preparo: "Não costuma exigir preparo específico. Prefira roupas que permitam deixar o tornozelo descoberto."
-      },
-      {
-        nome: "Ultrassonografia de Joelho",
-        categoria: "Musculoesquelética",
-        descricao: "Avalia tendões, ligamentos superficiais, bursas e possíveis coleções líquidas no joelho.",
-        duracao: "15 a 25 minutos",
-        termos: ["joelho", "dor no joelho", "cisto de baker", "tendinite patelar"],
-        preparo: "Não costuma exigir preparo. Utilize roupas que facilitem a exposição do joelho."
-      },
-      {
-        nome: "Ultrassonografia de Punho",
-        categoria: "Musculoesquelética",
-        descricao: "Avalia tendões, nervos e outras estruturas superficiais do punho.",
-        duracao: "15 a 25 minutos",
-        termos: ["punho", "mao", "tunel do carpo", "cisto sinovial", "tendinite"],
-        preparo: "Não costuma exigir preparo específico. Retire acessórios da região, quando possível."
-      },
-      {
-        nome: "Ultrassonografia de Cotovelo",
-        categoria: "Musculoesquelética",
-        descricao: "Avalia tendões, músculos e estruturas superficiais próximas ao cotovelo.",
-        duracao: "15 a 25 minutos",
-        termos: ["cotovelo", "epicondilite", "tenista", "tendinite", "dor no cotovelo"],
-        preparo: "Não costuma exigir preparo. Prefira roupas que permitam deixar o cotovelo descoberto."
-      },
-      {
-        nome: "Ultrassonografia de Parede Abdominal",
-        categoria: "Abdome e pelve",
-        descricao: "Examina músculos e tecidos da parede abdominal, auxiliando na avaliação de hérnias e outras alterações.",
-        duracao: "15 a 25 minutos",
-        termos: ["parede abdominal", "hernia", "diastase", "musculo abdominal", "barriga"],
-        preparo: "Geralmente não exige jejum nem bexiga cheia. Confirme com nossa equipe se há alguma orientação específica."
-      },
-      {
-        nome: "Ultrassonografia de Região Inguinal",
-        categoria: "Outras regiões",
-        descricao: "Avalia a região da virilha, incluindo tecidos superficiais, linfonodos e possíveis hérnias.",
-        duracao: "15 a 25 minutos",
-        termos: ["inguinal", "virilha", "hernia inguinal", "linfonodos", "caroco na virilha"],
-        preparo: "Normalmente não exige preparo específico. Utilize roupas confortáveis."
-      },
-      {
-        nome: "Ultrassonografia Cervical",
-        categoria: "Outras regiões",
-        descricao: "Avalia estruturas superficiais do pescoço, como linfonodos e glândulas, conforme a solicitação médica.",
-        duracao: "15 a 25 minutos",
-        termos: ["cervical", "pescoco", "linfonodos cervicais", "ganglios", "caroco no pescoco"],
-        preparo: "Não costuma exigir preparo. Evite acessórios que dificultem o acesso ao pescoço."
-      },
-      {
-        nome: "Ultrassonografia de Mamas e Axilas",
-        categoria: "Outras regiões",
-        descricao: "Avalia o tecido mamário e as regiões axilares, auxiliando na investigação de nódulos e outras alterações.",
-        duracao: "20 a 30 minutos",
-        termos: ["mamas", "mama", "seios", "axilas", "ultrassom mamario", "nodulo mamario"],
-        preparo: "Não costuma exigir preparo específico. Leve exames anteriores, caso possua."
-      },
-      {
-        nome: "Ultrassonografia Transvaginal",
-        categoria: "Abdome e pelve",
-        descricao: "Avalia útero, endométrio e ovários por meio de uma sonda introduzida na vagina.",
-        duracao: "15 a 25 minutos",
-        termos: ["transvaginal", "endovaginal", "utero", "ovarios", "ultrassom ginecologico"],
-        preparo: "Geralmente é realizado com a bexiga vazia. Informe à equipe caso haja gestação ou alguma condição que exija cuidados específicos."
-      },
-      {
-        nome: "Ultrassonografia de Tireoide",
-        categoria: "Outras regiões",
-        descricao: "Avalia tamanho, estrutura e possíveis nódulos da glândula tireoide.",
-        duracao: "15 a 25 minutos",
-        termos: ["tireoide", "tireoides", "tiroide", "glandula", "nodulo na tireoide", "pescoco"],
-        preparo: "Não costuma exigir preparo específico. Evite colares e acessórios na região do pescoço."
-      },
-      {
-        nome: "Ultrassonografia Pélvica",
-        categoria: "Abdome e pelve",
-        descricao: "Avalia órgãos pélvicos por via abdominal, como útero, ovários e bexiga.",
-        duracao: "15 a 25 minutos",
-        termos: ["pelvica", "pelve", "utero", "ovarios", "ultrassom pelvico", "bexiga"],
-        preparo: "Geralmente é necessário estar com a bexiga cheia. Confirme com a equipe a quantidade de água e o horário recomendado."
-      },
-      {
-        nome: "Doppler de Tireoide",
-        categoria: "Doppler",
-        descricao: "Avalia a tireoide e o fluxo sanguíneo da glândula por meio do Doppler.",
-        duracao: "20 a 30 minutos",
-        termos: ["doppler tireoide", "doppler tiroide", "vascularizacao tireoide", "fluxo tireoide"],
-        preparo: "Não costuma exigir preparo específico. Evite acessórios na região do pescoço."
-      },
-      {
-        nome: "Doppler de Carótidas e Vertebrais",
-        categoria: "Doppler",
-        descricao: "Avalia o fluxo sanguíneo nas artérias carótidas e vertebrais do pescoço.",
-        duracao: "25 a 40 minutos",
-        termos: ["doppler carotidas", "carotidas", "vertebrais", "arterias do pescoco", "doppler cervical"],
-        preparo: "Geralmente não exige preparo específico. Utilize roupas que facilitem o acesso ao pescoço."
-      },
-      {
-        nome: "Doppler Venoso de Membros Inferiores",
-        categoria: "Doppler",
-        descricao: "Avalia a circulação venosa das pernas, auxiliando na investigação de trombose e insuficiência venosa.",
-        duracao: "30 a 50 minutos",
-        termos: ["doppler venoso", "doppler pernas", "membros inferiores", "mmii", "trombose", "varizes", "circulacao"],
-        preparo: "Geralmente não exige preparo específico. Prefira roupas confortáveis que facilitem a avaliação das pernas."
-      }
-    ];
+  const categorias = [
+    "Todos",
+    "Abdome e pelve",
+    "Musculoesquelética",
+    "Outras regiões",
+    "Doppler"
+  ];
 
-    // ELEMENTOS DA PÁGINA
+  // CATÁLOGO OFICIAL DA GALENA
+  // Sem valores e sem durações não confirmadas.
 
-    const campoBusca = document.getElementById("busca");
-    const areaFiltros = document.getElementById("filtros");
-    const listaExames = document.getElementById("lista-exames");
-    const contador = document.getElementById("contador");
-
-    let categoriaAtual = "Todos";
-
-
-    // NORMALIZAÇÃO DE TEXTO
-    // Permite pesquisar sem acentos e sem diferenciar maiúsculas.
-
-    function normalizar(texto) {
-      return String(texto || "")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .trim();
+  const exames = [
+    {
+      nome: "Doppler Colorido Venoso de Membros Inferiores — Bilateral",
+      categoria: "Doppler",
+      descricao: "Avalia a circulação venosa das duas pernas.",
+      termos: ["doppler", "venoso", "pernas", "membros inferiores", "bilateral", "mmii"],
+      preparo: "O paciente deverá vir de shorts ou bermuda por baixo da roupa para facilitar e otimizar o atendimento."
+    },
+    {
+      nome: "Doppler Colorido Venoso de Membro Inferior — Unilateral",
+      categoria: "Doppler",
+      descricao: "Avalia a circulação venosa de uma das pernas.",
+      termos: ["doppler", "venoso", "perna", "membro inferior", "unilateral", "mmii"],
+      preparo: "O paciente deverá vir de shorts ou bermuda por baixo da roupa para facilitar e otimizar o atendimento."
+    },
+    {
+      nome: "Doppler de Carótidas e Vertebrais — Bilateral",
+      categoria: "Doppler",
+      descricao: "Avalia o fluxo sanguíneo nas artérias carótidas e vertebrais do pescoço.",
+      termos: ["doppler", "carotidas", "vertebrais", "vasos cervicais", "arteriais", "pescoco"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Abdome Inferior Feminino",
+      categoria: "Abdome e pelve",
+      descricao: "Avalia bexiga, útero, ovários e anexos pela via abdominal.",
+      termos: ["abdome inferior", "feminino", "pelvica", "pelve", "utero", "ovarios", "bexiga"],
+      preparo: "Bexiga cheia: beber 8 copos de água 2 horas antes do exame."
+    },
+    {
+      nome: "Ultrassonografia de Abdome Superior",
+      categoria: "Abdome e pelve",
+      descricao: "Avalia fígado, vias biliares, vesícula, pâncreas e baço.",
+      termos: ["abdome superior", "figado", "vesicula", "pancreas", "baco"],
+      preparo: "Bexiga cheia: beber 8 copos de água 2 horas antes do exame. Jejum de 8 horas (mínimo de 6 horas)."
+    },
+    {
+      nome: "Ultrassonografia de Abdome Total",
+      categoria: "Abdome e pelve",
+      descricao: "Avalia órgãos abdominais, rins, bexiga e grandes vasos abdominais.",
+      termos: ["abdome total", "barriga", "abdominal", "figado", "rins", "vesicula"],
+      preparo: "Bexiga cheia: beber 8 copos de água 2 horas antes do exame. Jejum de 8 horas (mínimo de 6 horas)."
+    },
+    {
+      nome: "Ultrassonografia de Rins e Vias Urinárias",
+      categoria: "Abdome e pelve",
+      descricao: "Avalia rins, ureteres e bexiga.",
+      termos: ["aparelho urinario", "rins", "ureteres", "bexiga", "renal"],
+      preparo: "Bexiga cheia: beber 8 copos de água 2 horas antes do exame."
+    },
+    {
+      nome: "Ultrassonografia de Axila — Unilateral",
+      categoria: "Outras regiões",
+      descricao: "Avalia os tecidos e estruturas da região axilar de um lado.",
+      termos: ["axila", "axilar", "unilateral", "linfonodos"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Cotovelo",
+      categoria: "Musculoesquelética",
+      descricao: "Avalia tendões, músculos e estruturas da região do cotovelo.",
+      termos: ["cotovelo", "articulacao", "tendao", "epicondilite"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Quadril — Adulto, Unilateral",
+      categoria: "Musculoesquelética",
+      descricao: "Avalia estruturas da articulação coxofemoral e tecidos ao redor em adultos.",
+      termos: ["quadril", "coxofemoral", "adulto", "unilateral", "articulacao"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Bolsa Escrotal",
+      categoria: "Outras regiões",
+      descricao: "Avalia os testículos e outras estruturas da bolsa escrotal.",
+      termos: ["escroto", "bolsa escrotal", "testiculo", "testiculos"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Joelho",
+      categoria: "Musculoesquelética",
+      descricao: "Avalia tendões, bursas e outras estruturas da região do joelho.",
+      termos: ["joelho", "articulacao", "cisto de baker"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Mamas",
+      categoria: "Outras regiões",
+      descricao: "Avalia o tecido mamário e auxilia na investigação de alterações.",
+      termos: ["mama", "mamas", "seios", "mamaria"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Ombro",
+      categoria: "Musculoesquelética",
+      descricao: "Avalia tendões, músculos e bursas da região do ombro.",
+      termos: ["ombro", "articulacao", "manguito rotador"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Parede Abdominal",
+      categoria: "Abdome e pelve",
+      descricao: "Avalia músculos e tecidos da parede abdominal.",
+      termos: ["parede abdominal", "hernia", "diastase", "barriga"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Partes Moles",
+      categoria: "Outras regiões",
+      descricao: "Avalia tecidos superficiais da região indicada na solicitação médica.",
+      termos: ["partes moles", "nodulo", "caroco", "subcutaneo"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Pé",
+      categoria: "Musculoesquelética",
+      descricao: "Avalia tendões e outras estruturas superficiais do pé.",
+      termos: ["pe", "pes", "tendao"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Próstata — Via Abdominal",
+      categoria: "Abdome e pelve",
+      descricao: "Avalia a próstata por meio de ultrassonografia abdominal.",
+      termos: ["prostata", "via abdominal", "masculino"],
+      preparo: "Bexiga cheia: beber 8 copos de água 2 horas antes do exame."
+    },
+    {
+      nome: "Ultrassonografia de Punho",
+      categoria: "Musculoesquelética",
+      descricao: "Avalia tendões e outras estruturas da região do punho.",
+      termos: ["punho", "mao", "articulacao", "tunel do carpo"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Região Cervical",
+      categoria: "Outras regiões",
+      descricao: "Avalia estruturas superficiais do pescoço, conforme a solicitação médica.",
+      termos: ["regiao cervical", "pescoco", "linfonodos"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Região Inguinal — Unilateral",
+      categoria: "Outras regiões",
+      descricao: "Avalia os tecidos da região da virilha de um lado.",
+      termos: ["inguinal", "virilha", "unilateral", "hernia"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Tireoide",
+      categoria: "Outras regiões",
+      descricao: "Avalia a glândula tireoide e possíveis alterações em sua estrutura.",
+      termos: ["tireoide", "tiroide", "glandula", "pescoco"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia de Tornozelo",
+      categoria: "Musculoesquelética",
+      descricao: "Avalia tendões, ligamentos e tecidos da região do tornozelo.",
+      termos: ["tornozelo", "articulacao", "entorse"],
+      preparo: ""
+    },
+    {
+      nome: "Ultrassonografia Transvaginal",
+      categoria: "Abdome e pelve",
+      descricao: "Avalia útero, ovários e anexos pela via transvaginal. Não inclui ultrassonografia obstétrica transvaginal.",
+      termos: ["transvaginal", "endovaginal", "utero", "ovarios", "ginecologico"],
+      preparo: ""
     }
+  ];
 
+  const campoBusca = document.getElementById("busca");
+  const areaFiltros = document.getElementById("filtros");
+  const listaExames = document.getElementById("lista-exames");
+  const contador = document.getElementById("contador");
 
-    // SEGURANÇA PARA INSERÇÃO DE TEXTOS NO HTML
+  let categoriaAtual = "Todos";
 
-    function escaparHTML(texto) {
-      return String(texto || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
+  function normalizar(texto) {
+    return String(texto || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .trim();
+  }
 
+  function escaparHTML(texto) {
+    return String(texto || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
 
-    // LINK PERSONALIZADO DO WHATSAPP
+  function linkWhatsApp(nomeExame) {
+    const mensagem =
+      "Olá! Vim pelo site da Galena e gostaria " +
+      "de informações sobre o exame: " +
+      nomeExame +
+      ". Poderiam me ajudar com o agendamento?";
 
-    function linkWhatsApp(nomeExame) {
-      const mensagem =
-        "Olá! Vim pelo site da Galena e gostaria " +
-        "de informações sobre o exame: " +
-        nomeExame +
-        ". Poderiam me ajudar com o agendamento?";
+    return (
+      "https://wa.me/" +
+      WHATSAPP +
+      "?text=" +
+      encodeURIComponent(mensagem)
+    );
+  }
 
-      return (
-        "https://wa.me/" +
-        WHATSAPP +
-        "?text=" +
-        encodeURIComponent(mensagem)
-      );
-    }
-
-
-    // CRIAÇÃO DOS FILTROS
-
-    function renderizarFiltros() {
-      areaFiltros.innerHTML = categorias.map(categoria => {
-        const ativo = categoria === categoriaAtual;
-
-        return `
-          <button
-            type="button"
-            class="filtro ${ativo ? "ativo" : ""}"
-            data-categoria="${escaparHTML(categoria)}"
-            aria-pressed="${ativo}"
-          >
-            ${escaparHTML(categoria)}
-          </button>
-        `;
-      }).join("");
-    }
-
-
-    // VERIFICA SE O EXAME CORRESPONDE À PESQUISA
-
-    function correspondeBusca(exame, pesquisa) {
-      if (!pesquisa) return true;
-
-      const conteudo = [
-        exame.nome,
-        exame.categoria,
-        exame.descricao,
-        ...(exame.termos || [])
-      ].join(" ");
-
-      return normalizar(conteudo).includes(pesquisa);
-    }
-
-
-    // CRIAÇÃO DOS CARTÕES DOS EXAMES
-
-    function criarCartao(exame, indice) {
-      const identificador = "preparo-" + indice;
+  function renderizarFiltros() {
+    areaFiltros.innerHTML = categorias.map(categoria => {
+      const ativo = categoria === categoriaAtual;
 
       return `
-        <article class="cartao-exame">
+        <button
+          type="button"
+          class="filtro ${ativo ? "ativo" : ""}"
+          data-categoria="${escaparHTML(categoria)}"
+          aria-pressed="${ativo}"
+        >
+          ${escaparHTML(categoria)}
+        </button>
+      `;
+    }).join("");
+  }
 
-          <span class="categoria">
-            ${escaparHTML(exame.categoria)}
-          </span>
+  function correspondeBusca(exame, pesquisa) {
+    if (!pesquisa) return true;
 
-          <h3>
-            ${escaparHTML(exame.nome)}
-          </h3>
+    const conteudo = [
+      exame.nome,
+      exame.categoria,
+      exame.descricao,
+      ...(exame.termos || [])
+    ].join(" ");
 
-          <p class="descricao">
-            ${escaparHTML(exame.descricao)}
-          </p>
+    return normalizar(conteudo).includes(pesquisa);
+  }
 
-          <p class="duracao">
-            Duração aproximada: ${escaparHTML(exame.duracao)}
-          </p>
+  function criarCartao(exame, indice) {
+    const identificador = "preparo-" + indice;
 
+    return `
+      <article class="cartao-exame">
+
+        <span class="categoria">
+          ${escaparHTML(exame.categoria)}
+        </span>
+
+        <h3>
+          ${escaparHTML(exame.nome)}
+        </h3>
+
+        <p class="descricao">
+          ${escaparHTML(exame.descricao)}
+        </p>
+
+        ${exame.preparo ? `
           <div
             class="preparo"
             id="${identificador}"
           >
             <h4>Orientações de preparo</h4>
-
-            <p>
-              ${escaparHTML(exame.preparo)}
-            </p>
+            <p>${escaparHTML(exame.preparo)}</p>
           </div>
+        ` : ""}
 
-          <div class="acoes">
+        <div class="acoes">
 
+          ${exame.preparo ? `
             <button
               type="button"
               class="botao botao-secundario"
@@ -1154,123 +1141,98 @@
             >
               Ver preparo
             </button>
+          ` : ""}
 
-            <a
-              class="botao botao-whatsapp"
-              href="${linkWhatsApp(exame.nome)}"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Solicitar agendamento de ${escaparHTML(exame.nome)} pelo WhatsApp"
-            >
-              Agendar exame
-            </a>
+          <a
+            class="botao botao-whatsapp"
+            href="${linkWhatsApp(exame.nome)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Solicitar agendamento de ${escaparHTML(exame.nome)} pelo WhatsApp"
+          >
+            Agendar exame
+          </a>
 
-          </div>
+        </div>
 
-        </article>
+      </article>
+    `;
+  }
+
+  function renderizarExames() {
+    const pesquisa = normalizar(campoBusca.value);
+
+    const encontrados = exames
+      .map((exame, indice) => ({ ...exame, indice }))
+      .filter(exame => {
+        const correspondeCategoria =
+          categoriaAtual === "Todos" ||
+          exame.categoria === categoriaAtual;
+
+        return correspondeCategoria &&
+          correspondeBusca(exame, pesquisa);
+      });
+
+    contador.textContent =
+      encontrados.length === 1
+        ? "1 exame encontrado"
+        : encontrados.length + " exames encontrados";
+
+    if (encontrados.length === 0) {
+      listaExames.innerHTML = `
+        <div class="vazio">
+          <strong>Nenhum exame encontrado.</strong>
+          <p>
+            Tente pesquisar por outro nome,
+            região do corpo ou termo mais simples.
+          </p>
+          <p>
+            Se precisar, nossa equipe pode ajudar
+            a identificar o exame solicitado.
+          </p>
+        </div>
       `;
+      return;
     }
 
+    listaExames.innerHTML = encontrados
+      .map(exame => criarCartao(exame, exame.indice))
+      .join("");
+  }
 
-    // RENDERIZAÇÃO DA LISTA
+  campoBusca.addEventListener("input", () => {
+    renderizarExames();
+  });
 
-    function renderizarExames() {
-      const pesquisa = normalizar(campoBusca.value);
+  areaFiltros.addEventListener("click", evento => {
+    const botao = evento.target.closest("[data-categoria]");
+    if (!botao) return;
 
-      const encontrados = exames
-        .map((exame, indice) => ({ ...exame, indice }))
-        .filter(exame => {
-          const correspondeCategoria =
-            categoriaAtual === "Todos" ||
-            exame.categoria === categoriaAtual;
-
-          return (
-            correspondeCategoria &&
-            correspondeBusca(exame, pesquisa)
-          );
-        });
-
-      contador.textContent =
-        encontrados.length === 1
-          ? "1 exame encontrado"
-          : encontrados.length + " exames encontrados";
-
-      if (encontrados.length === 0) {
-        listaExames.innerHTML = `
-          <div class="vazio">
-            <strong>Nenhum exame encontrado.</strong>
-            <p>
-              Tente pesquisar por outro nome,
-              região do corpo ou termo mais simples.
-            </p>
-            <p>
-              Se precisar, nossa equipe pode ajudar
-              a identificar o exame solicitado.
-            </p>
-          </div>
-        `;
-
-        return;
-      }
-
-      listaExames.innerHTML = encontrados
-        .map(exame => criarCartao(exame, exame.indice))
-        .join("");
-    }
-
-
-    // EVENTO DE PESQUISA
-
-    campoBusca.addEventListener("input", () => {
-      renderizarExames();
-    });
-
-
-    // EVENTO DOS FILTROS
-
-    areaFiltros.addEventListener("click", evento => {
-      const botao = evento.target.closest("[data-categoria]");
-
-      if (!botao) return;
-
-      categoriaAtual = botao.dataset.categoria;
-
-      renderizarFiltros();
-      renderizarExames();
-    });
-
-
-    // EVENTO DOS BOTÕES DE PREPARO
-
-    listaExames.addEventListener("click", evento => {
-      const botao = evento.target.closest("[data-preparo]");
-
-      if (!botao) return;
-
-      const identificador = botao.dataset.preparo;
-      const preparo = document.getElementById(identificador);
-
-      if (!preparo) return;
-
-      const aberto = preparo.classList.toggle("aberto");
-
-      botao.setAttribute(
-        "aria-expanded",
-        String(aberto)
-      );
-
-      botao.textContent = aberto
-        ? "Ocultar preparo"
-        : "Ver preparo";
-    });
-
-
-    // INICIALIZAÇÃO DA CENTRAL
-
+    categoriaAtual = botao.dataset.categoria;
     renderizarFiltros();
     renderizarExames();
+  });
 
-  </script>
+  listaExames.addEventListener("click", evento => {
+    const botao = evento.target.closest("[data-preparo]");
+    if (!botao) return;
+
+    const identificador = botao.dataset.preparo;
+    const preparo = document.getElementById(identificador);
+    if (!preparo) return;
+
+    const aberto = preparo.classList.toggle("aberto");
+
+    botao.setAttribute("aria-expanded", String(aberto));
+
+    botao.textContent = aberto
+      ? "Ocultar preparo"
+      : "Ver preparo";
+  });
+
+  renderizarFiltros();
+  renderizarExames();
+</script>
 
 </body>
 </html>
